@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="pageRekamMedis page">
     <Header />
-    <div class="container mb-4">
+    <div class="containerRekamMedis container mb-4">
       <div class="row">
         <div>
           <a class="link" href="adminHome">Home</a> <strong>></strong>
@@ -11,9 +11,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageRekamMedis page">
       <div class="row">
-        <div class="card">
+        <div class="cardRekamMedis card">
           <div class="card-body">
             <h2>
               <strong>
@@ -49,7 +49,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="riwayatPasienM" class="btn btn2 btn-block">Sedang Diproses</a>
+                        <a href="riwayatPasienM" class="btnRekamMedis btnRekamMedis2 btn btn-block">Sedang Diproses</a>
                         <small class="small"><strong>Tanggal: 27 Mei 2022</strong></small><br>
                       </div>
                     </div>
@@ -65,10 +65,10 @@
 </template>
 
 <style>
-.btn2{
+.btnRekamMedis2{
   padding: 10px;
 }
-.page{
+.pageRekamMedis{
   background-color: whitesmoke;
   height: 100vh;
 }
@@ -119,14 +119,14 @@ h2{
   background-color: rgba(213, 224, 254, 0.3);
   padding: 10px;
 }
-.container a {
+.containerRekamMedis a {
   text-decoration: none;
   color: grey;
 }
-.container a:hover{
+.containerRekamMedis a:hover{
   color: black;
 }
-.card{
+.cardRekamMedis{
   margin: auto;
   width: 1500px;
   border: none;
@@ -160,7 +160,7 @@ h2{
   font-size: 2em;
   font-weight: bold;
 }
-.btn{
+.btnRekamMedis{
   width: 90%;
   background-color: #0957DE;
   border-radius: 7px;
@@ -171,17 +171,17 @@ h2{
   padding: 10px;
   margin-bottom: 10px;
 }
-.btn:hover {
+.btnRekamMedis:hover {
   background-color: white;
   color: #0957DE;
   border-color: #0957DE;
 }
-.btn1{
+.btnRekamMedis3{
   width: 40%;
   background-color: rgb(165, 165, 165);
   float: right;
 }
-.btn1:hover{
+.btnRekamMedis3:hover{
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);

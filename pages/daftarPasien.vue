@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="pageDaftarPasien page">
     <Header />
     <div class="container mb-4">
       <div class="row">
@@ -9,9 +9,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageDaftarPasie page ">
       <div class="row">
-        <div class="card">
+        <div class="cardDaftarPasien card">
           <div class="card-body">
             <h5 class="card-title">PENDAFTARAN</h5>
              <div class="card-text">
@@ -80,7 +80,7 @@
                         <textarea class="form-control" id="keluhan" rows="4"></textarea> <br>
                         <small class="text">*Pastikan data sudah terisi dengan benar</small>
 
-                        <a @click="konfirmasi" class="btn btn-primary btn-block mt-4">KONFIRMASI</a>
+                        <a @click="konfirmasi" class="btnDaftarPasien btn btn-primary btn-block mt-4">KONFIRMASI</a>
                     </div>
                   </div>
                 </b-form-input>
@@ -106,7 +106,7 @@ methods:{
 </script>
 
 <style>
-.page{
+.pageDaftarPasien{
     background-color: whitesmoke;
     height: 100vh;
 }
@@ -117,7 +117,7 @@ methods:{
 .container a:hover{
   color: black;
 }
-.card{
+.cardDaftarPasien{
   margin: auto;
   width: 1500px;
   border: none;
@@ -148,7 +148,7 @@ methods:{
   font-weight: 500;
   font-size: 1em;
 }
-.btn{
+.btnDaftarPasien{
   width: 90%;
   background-color: #0957DE;
   margin: auto;
@@ -157,7 +157,7 @@ methods:{
   font-weight: bold;
   padding: 10px;
 }
-.btn:hover {
+.btnDaftarPasien:hover {
   background-color: white;
   color: #0957DE !important;
 }

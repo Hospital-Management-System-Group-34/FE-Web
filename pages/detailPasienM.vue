@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="pageDetailPasien page">
     <Header />
-    <div class="container mb-4">
+    <div class="containerDetailPasien container mb-4">
       <div class="row">
         <div>
           <a class="link" href="adminHome">Home</a> <strong>></strong>
@@ -11,9 +11,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageDetailPasien page">
       <div class="row">
-        <div class="card">
+        <div class="cardDetailPasien card">
           <div class="card-body">
             <h2>
               <strong>
@@ -54,7 +54,7 @@
                     <h4 class="mt-4">No. HP</h4>
                     <h5 class="label mt-4">0812345678</h5>
                   </div>
-                  <button class="mt-5 btn btn-block">EDIT</button>
+                  <button class="mt-5 btnDetailPasien btn btn-block">EDIT</button>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@
 </template>
 
 <style>
-.page{
+.pageDetailPasien{
   background-color: whitesmoke;
   height: 100vh;
 }
@@ -121,14 +121,14 @@ h2{
   background-color: rgba(213, 224, 254, 0.3);
   padding: 10px;
 }
-.container a {
+.containerDetailPasien a {
   text-decoration: none;
   color: grey;
 }
-.container a:hover{
+.containerDetailPasien a:hover{
   color: black;
 }
-.card{
+.cardDetailPasien{
   margin: auto;
   width: 1500px;
   border: none;
@@ -151,7 +151,7 @@ h2{
   font-size: 2em;
   font-weight: bold;
 }
-.btn{
+.btnDetailPasien{
   width: 100%;
   background-color: #0957DE;
   border-radius: 7px;
@@ -162,17 +162,17 @@ h2{
   padding: 20px;
   margin-bottom: 10px;
 }
-.btn:hover {
+.btnDetailPasien:hover {
   background-color: white;
   color: #0957DE;
   border-color: #0957DE;
 }
-.btn1{
+.btnDetailPasien2{
   width: 40%;
   background-color: rgb(165, 165, 165);
   float: right;
 }
-.btn1:hover{
+.btnDetailPasien2:hover{
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);

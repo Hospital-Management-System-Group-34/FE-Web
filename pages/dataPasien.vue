@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="pageDataPasien page">
     <Header />
-    <div class="container mb-4">
+    <div class="containerDataPasien container mb-4">
       <div class="row">
         <div>
           <a class="link" href="adminHome">Home</a> <strong>></strong>
@@ -9,9 +9,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageDataPasien page">
       <div class="row">
-        <div class="card">
+        <div class="cardDataPasien card">
           <div class="card-body">
             <div class="card-title mb-5">Data Poli Umum</div>
             <div class="row">
@@ -27,26 +27,26 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row"><h4 class="btn btn-primary">Sedang diproses</h4></th>
+                    <th scope="row"><h4 class="btnDataPasien btn btn-primary">Sedang diproses</h4></th>
                     <td>UM01</td>
                     <td>Tengku Mahmudi</td>
                     <td>27/05/2022</td>
                     <td>
                       <div class="row">
-                        <div class="col-6"><a href="detailPasienM" class="btn btn-primary">Lihat</a></div>
-                        <div class="col-6"><a href="" class="btn btn-danger">Hapus</a></div>
+                        <div class="col-6"><a href="detailPasienM" class="btnDataPasien btn btn-primary">Lihat</a></div>
+                        <div class="col-6"><a href="" class="btnDataPasien btn btn-danger">Hapus</a></div>
                       </div>
                     </td>
                   </tr>
                                     <tr>
-                    <th scope="row"><h4 class="btn btn-primary">Sedang diproses</h4></th>
+                    <th scope="row"><h4 class="btnDataPasien btn btn-primary">Sedang diproses</h4></th>
                     <td>UM02</td>
                     <td>Cecilia</td>
                     <td>27/05/2022</td>
                     <td>
                       <div class="row">
-                        <div class="col-6"><a href="detailPasienM" class="btn btn-primary">Lihat</a></div>
-                        <div class="col-6"><a href="" class="btn btn-danger">Hapus</a></div>
+                        <div class="col-6"><a href="detailPasienM" class="btnDataPasien btn btn-primary">Lihat</a></div>
+                        <div class="col-6"><a href="" class="btnDataPasien btn btn-danger">Hapus</a></div>
                       </div>
                     </td>
                   </tr>
@@ -61,18 +61,18 @@
 </template>
 
 <style>
-.page{
+.pageDataPasien{
   background-color: whitesmoke;
   height: 100vh;
 }
-.container a {
+.containerDataPasien a {
   text-decoration: none;
   color: grey;
 }
-.container a:hover{
+.containerDataPasien a:hover{
   color: black;
 }
-.card{
+.cardDataPasien{
   margin: auto;
   width: 1500px;
   border: none;
@@ -86,7 +86,7 @@
   font-size: 2em;
   font-weight: bold;
 }
-.btn{
+.btnDataPasien{
   width: 50%;
   border-radius: 7px;
   margin: auto;

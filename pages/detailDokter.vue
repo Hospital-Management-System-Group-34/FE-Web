@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="pageDetailDokter page">
     <Header />
     <div class="container mb-4">
       <div class="row">
@@ -10,9 +10,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageDetailDokter page">
       <div class="row">
-        <div class="card">
+        <div class="cardDetailDokter card">
           <div class="card-body">
             <h2>
               <strong>
@@ -78,7 +78,7 @@
 </template>
 
 <style>
-.page{
+.pageDetailDokter{
   background-color: whitesmoke;
   height: 100vh;
 }
@@ -118,7 +118,7 @@ h2{
 .container a:hover{
   color: black;
 }
-.card{
+.cardDetailDokter{
   margin: auto;
   width: 1500px;
   border: none;

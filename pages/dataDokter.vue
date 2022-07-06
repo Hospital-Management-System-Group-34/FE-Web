@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="pageDataDokter">
     <Header />
-    <div class="container mb-4">
+    <div class="container2 container mb-4">
       <div class="row">
         <div>
           <a class="link" href="adminHome">Home</a> <strong>></strong>
@@ -9,22 +9,22 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageDataDokter">
       <div class="row">
-        <div class="card">
+        <div class="cardDataDokter card">
           <div class="card-body">
             <div class="row">
               <div class="col-6">
                 <h5 class="card-title pl-4">Data Dokter</h5>
               </div>
               <div class="col-6">
-                <a href="" class="btn btn1 btn-block">TAMBAH DATA DOKTER</a>
+                <a href="" class="btnDataDokter btn2 btn btn-block">TAMBAH DATA DOKTER</a>
               </div>
             </div>
             <div class="container-fluid text-center mb-5">
               <div class="row">
                 <div class="col-6">
-                  <div class="card content">
+                  <div class="cardDataDokter card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -37,12 +37,12 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="profileDokter" class="btn btn-block">LIHAT DATA</a>
+                        <a href="profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="cardDataDokter card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -55,12 +55,12 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn btn-block">LIHAT DATA</a>
+                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="cardDataDokter card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -73,14 +73,14 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn btn-block">LIHAT DATA</a>
+                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="card content">
+                  <div class="cardDataDokter card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -93,12 +93,12 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn btn-block">LIHAT DATA</a>
+                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="cardDataDokter card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -111,12 +111,12 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn btn-block">LIHAT DATA</a>
+                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="cardDataDokter card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -129,7 +129,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn btn-block">LIHAT DATA</a>
+                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -145,7 +145,7 @@
 </template>
 
 <style>
-.page{
+.pageDataDokter{
   background-color: whitesmoke;
   height: 100vh;
 }
@@ -159,14 +159,14 @@
 .text{
   color: #0957DE;
 }
-.container a {
+.container2 a {
   text-decoration: none;
   color: grey;
 }
-.container a:hover{
+.container2 a:hover{
   color: black;
 }
-.card{
+.cardDataDokter{
   margin: auto;
   width: 1500px;
   border: none;
@@ -195,7 +195,7 @@
   width: 90%;
   margin: auto;
 }
-.btn{
+.btnDataDokter{
   width: 90%;
   background-color: #0957DE;
   border-radius: 7px;
@@ -206,17 +206,17 @@
   padding: 10px;
   margin-bottom: 10px;
 }
-.btn:hover {
+.btnDataDokter:hover {
   background-color: white;
   color: #0957DE;
   border-color: #0957DE;
 }
-.btn1{
+.btn2{
   width: 40%;
   background-color: rgb(165, 165, 165);
   float: right;
 }
-.btn1:hover{
+.btn2:hover{
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);

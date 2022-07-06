@@ -17,7 +17,7 @@
             <div class="container-fluid text-center mb-5">
               <div class="row">
                 <div class="col-6">
-                  <div class="card card2 content">
+                  <div class="card2 card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -37,7 +37,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="card2 card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -57,7 +57,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="card2 card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -79,7 +79,7 @@
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="card content">
+                  <div class="card2 card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -99,7 +99,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="card2 card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>
@@ -119,7 +119,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card content">
+                  <div class="card2 card content">
                     <div class="row">
                       <div class="col-6 mt-4">
                         <h5>

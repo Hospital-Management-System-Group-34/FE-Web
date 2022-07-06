@@ -11,7 +11,7 @@
         <div class="col-6">
           <div class="card text-center">
             <div class="card-body">
-              <div class="card-title">PENDAFTARAN PASIEN</div>
+              <div class="card-title2">PENDAFTARAN PASIEN</div>
                 <div class="card-img">
                   <img src="~assets/img/pana.png" class="img-fluid" alt="">
                   <p class="card-text mt-3">Hari ini, {{timestamp}}</p>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-6">
                   <div class="card-body mt-5">
-                    <div class="card-title">DATA POLIKLINIK</div>
+                    <div class="card-title2">DATA POLIKLINIK</div>
                     <a href="dataPoliklinik" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
                   </div>
                 </div>
@@ -54,7 +54,7 @@
                   </div>
                   <div class="col-6">
                     <div class="card-body mt-5">
-                      <div class="card-title">DATA DOKTER</div>
+                      <div class="card-title2">DATA DOKTER</div>
                       <a href="dataDokter" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export default {
   max-width: 1800px;
   margin-top: 50px;
 }
-.card-title{
+.card-title2{
   font-weight: bold;
   font-size: 1.5vw;
 }

@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="pageDetailDokter page">
     <Header />
-    <div class="container mb-4">
+    <div class="containerDetailDokter container mb-4">
       <div class="row">
         <div>
           <a class="link" href="adminHome">Home</a> <strong>></strong>
@@ -9,9 +9,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageDetailDokter page">
       <div class="row">
-        <div class="card">
+        <div class="cardDetailDokter card">
           <div class="card-body">
             <h2>
               <strong>
@@ -82,7 +82,7 @@
                     <h4 class="mt-4">Agama</h4>
                     <h5 class="label mt-4">
                       <!-- <input class="label form-control-plaintext" :readonly="disable" placeholder="Islam"> -->
-                      <select id="sex" class="label form-control-plaintext" :disabled="disable">
+                      <select id="agama" class="label form-control-plaintext" :disabled="disable">
                           <option selected>-- AGAMA --</option>
                           <option>Islam</option>
                           <option>Kristen</option>
@@ -90,8 +90,8 @@
                     </h5>
                   </div>
                   </form>
-                  <button v-if="disable" class="mt-5 btn btn-block" @click="editForm">EDIT</button>
-                  <button v-else class="mt-5 btn btn-block" @click="editForm">CONFIRM</button>
+                  <button v-if="disable" class="mt-5 btnDetailDokter1 btn btn-block" @click="editForm">EDIT</button>
+                  <button v-else class="mt-5 btnDetailDokter1 btn btn-block" @click="editForm">CONFIRM</button>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@ methods: {
 </script>
 
 <style>
-.page{
+.pageDetailDokter{
   background-color: whitesmoke;
   height: 100vh;
 }
@@ -179,14 +179,14 @@ h2{
   background-color: rgba(213, 224, 254, 0.3);
   padding: 10px;
 }
-.container a {
+.containerDetailDokter a {
   text-decoration: none;
   color: grey;
 }
-.container a:hover{
+.containerDetailDokter a:hover{
   color: black;
 }
-.card{
+.cardDetailDokter{
   margin: auto;
   width: 1500px;
   border: none;
@@ -209,7 +209,7 @@ h2{
   font-size: 2em;
   font-weight: bold;
 }
-.btn{
+.btnDetailDokter1{
   width: 100%;
   background-color: #0957DE;
   border-radius: 7px;
@@ -220,17 +220,17 @@ h2{
   padding: 20px;
   margin-bottom: 10px;
 }
-.btn:hover {
+.btnDetailDokter1:hover {
   background-color: white;
   color: #0957DE;
   border-color: #0957DE;
 }
-.btn1{
+.btnDetailDokter2{
   width: 40%;
   background-color: rgb(165, 165, 165);
   float: right;
 }
-.btn1:hover{
+.btnDetailDokter2:hover{
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);

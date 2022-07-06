@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
+  <div class="pageJadwalPraktik page">
     <Header />
-    <div class="container mb-4">
+    <div class="containerJadwalPraktik container mb-4">
       <div class="row">
         <div>
           <a class="link" href="adminHome">Home</a> <strong>></strong>
@@ -9,9 +9,9 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid page">
+    <div class="container-fluid pageJadwalPraktik page">
       <div class="row">
-        <div class="card">
+        <div class="cardJadwalPraktik card">
           <div class="card-body">
             <h2>
               <strong>
@@ -77,7 +77,7 @@
                     <h4 class="mt-4">Sabtu</h4>
                     <h5 class="label mt-4">08:00 - 11:00</h5>
                   </div>
-                  <button class="mt-5 btn btn-block">EDIT</button>
+                  <button class="mt-5 btnJadwalPraktik btn btn-block">EDIT</button>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
 </template>
 
 <style>
-.page{
+.pageJadwalPraktik{
   background-color: whitesmoke;
   height: 100vh;
 }
@@ -140,14 +140,14 @@ h2{
   background-color: rgba(213, 224, 254, 0.3);
   padding: 10px;
 }
-.container a {
+.containerJadwalPraktik a {
   text-decoration: none;
   color: grey;
 }
-.container a:hover{
+.containerJadwalPraktik a:hover{
   color: black;
 }
-.card{
+.cardJadwalPraktik{
   margin: auto;
   width: 1500px;
   border: none;
@@ -170,7 +170,7 @@ h2{
   font-size: 2em;
   font-weight: bold;
 }
-.btn{
+.btnJadwalPraktik{
   width: 100%;
   background-color: #0957DE;
   border-radius: 7px;
@@ -181,17 +181,17 @@ h2{
   padding: 20px;
   margin-bottom: 10px;
 }
-.btn:hover {
+.btnJadwalPraktik:hover {
   background-color: white;
   color: #0957DE;
   border-color: #0957DE;
 }
-.btn1{
+.btnJadwalPraktik2{
   width: 40%;
   background-color: rgb(165, 165, 165);
   float: right;
 }
-.btn1:hover{
+.btnJadwalPraktik2:hover{
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);
