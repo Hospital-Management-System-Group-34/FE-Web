@@ -43,8 +43,7 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // browserBaseURL: '/',
-    // baseURL: 'http://18.140.62.73:9000/',
-    baseURL: 'https://virtserver.swaggerhub.com/G2731/GymMembership/1.0/user',
+    baseURL: 'http://18.141.205.74:9000/',
     // proxy: true
     // proxy: false,
     // prefix: process.env.API_URL,
@@ -59,10 +58,10 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          // login: { url: 'login', method: 'post', propertyName: 'data.accessToken'},
-          login: { url: 'login', method: 'post', propertyName: 'data.token'},
-          // user: {url:'users/doctor-1', method: 'get', propertyName: 'data.user'},
-          user: {url:'', method: 'get', propertyName: 'data'},
+          login: { url: 'login', method: 'post', propertyName: 'data.accessToken'},
+          // login: { url: 'login', method: 'post', propertyName: 'data.token'},
+          user: {url:'users/doctor-1', method: 'get', propertyName: 'data.user'},
+          // user: {url:'', method: 'get', propertyName: 'data'},
           logout: false,
           // logout: {url: 'logout', method: 'post'},
         }
