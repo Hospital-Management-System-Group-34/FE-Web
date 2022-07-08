@@ -15,26 +15,26 @@
           <div class="card-body">
             <h5 class="card-title">PENDAFTARAN</h5>
              <div class="card-text">
-                <b-form-input class="mt-5">
+                <form method="post" class="form mt-5" @submit.prevent="submitRegist">
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="nik" class="label">NIK</label>
-                      <input type="number" class="form-control mb-2" id="nik" placeholder="Masukkan nomer NIK">
+                      <input type="number" class="form-control mb-2" v-model="patientNik" id="nik" placeholder="Masukkan nomer NIK">
                       <small class="text">*NIK harus 16 digit</small> <br>
 
                       <label for="norek" class="label mt-4">No. Rekam Medis</label>
                       <input type="text" class="form-control mb-2" id="norek" placeholder="PS.123456789">
 
                       <label for="name" class="label mt-4">Nama Lengkap</label>
-                      <input type="text" class="form-control mb-2" id="name" placeholder="Alterra">
+                      <input type="text" class="form-control mb-2" v-model="patientName" id="name" placeholder="Alterra">
 
                       <label for="no" class="label mt-4">No. HP</label>
-                      <input type="number" class="form-control mb-2" id="no" placeholder="082213273168">
+                      <input type="number" class="form-control mb-2" v-model="patientPhone" id="no" placeholder="082213273168">
 
                       <label for="sex" class="label mt-4">Jenis Kelamin</label>
-                        <select id="sex" class="form-control">
+                        <select id="sex" class="form-control" v-model="patientGender">
                           <option selected>-- PILIH JENIS KELAMIN --</option>
-                          <option>Laki-laki</option>
+                          <option>Laki-Laki</option>
                           <option>Perempuan</option>
                         </select>
                     </div>
@@ -80,10 +80,10 @@
                         <textarea class="form-control" id="keluhan" rows="4"></textarea> <br>
                         <small class="text">*Pastikan data sudah terisi dengan benar</small>
 
-                        <a @click="konfirmasi" class="btnDaftarPasien btn btn-primary btn-block mt-4">KONFIRMASI</a>
+                        <button type="submit" class="btnDaftarPasien btn btn-primary btn-block mt-4">KONFIRMASI</button>
                     </div>
                   </div>
-                </b-form-input>
+                </form>
              </div>
           </div>
         </div>
@@ -97,10 +97,39 @@ export default {
 
 middleware: 'auth',
 
-methods:{
-  konfirmasi(){
-   this.$router.push({ name: 'daftarBerhasil' })
+data(){
+  return{
+    patientNik: '',
+    patientName: '',
+    patientPhone: '',
+    patientGender: '',
   }
+},
+
+methods: {
+  async submitRegist(){
+    try{
+      await this.$axios.$post('http://18.141.205.74:9000/patients', 
+        {
+          nik: this.patientNik,
+          name: this.patientName,
+          phone: this.patientPhone,
+          gender: this.patientGender
+        }
+      )
+      // console.log(data)
+      this.$router.push('/daftarBerhasil')
+    } catch(e) {
+      console.log(e.response)
+    }
+  
+  // console.log(
+  //   this.patientName,
+  //   this.patientGender,
+  //   this.patientNik,
+  //   this.patientPhone,
+  // )
+}
 }
 }
 </script>

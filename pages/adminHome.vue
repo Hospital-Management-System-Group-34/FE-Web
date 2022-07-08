@@ -1,9 +1,15 @@
 <template>
   <div class="page">
     <Header />
-    <div v-if="isAuthenticated">
-    <!-- <h1 v-for="(user,i) in loggedInUser" :key="i" class="title text-center">Selamat Datang {{user}}</h1> -->
-    <h1  class="title text-center">Selamat Datang {{loggedInUser.name}}</h1>
+    <div class="container head">
+      <div class="row">
+        <div class="col-6">
+          <h1 class="title">Selamat Pagi {{loggedInUser.name}}!</h1>
+        </div>
+        <div class="col-6">
+          <h1 class="date text-right">{{timestamp}}</h1>
+        </div>
+      </div>
     </div>
     <div class="container-fluid">
       <div class="row">
@@ -11,12 +17,12 @@
         <div class="col-6">
           <div class="card text-center">
             <div class="card-body">
-              <div class="card-title2">PENDAFTARAN PASIEN</div>
+              <div class="card-title">PENDAFTARAN PASIEN</div>
                 <div class="card-img">
                   <img src="~assets/img/pana.png" class="img-fluid" alt="">
-                  <p class="card-text mt-3">Hari ini, {{timestamp}}</p>
+                  <p class="card-text mt-3">Saat ini, {{timestamp}}</p>
                   <a href="daftarPasien" class="btnHome btn btn-primary btn-block mb-3">+ Pendaftaran pasien baru</a>
-                  <a href="daftarPasien" class="btnHome btn1 btn-primary btn-block mb-4">+ Pendaftaran pasien lama</a>
+                  <a href="daftarPasien" class="btnHome btn1 btn btn-primary btn-block mb-4">+ Pendaftaran pasien lama</a>
                 </div>
             </div>
           </div>
@@ -35,7 +41,7 @@
                 </div>
                 <div class="col-6">
                   <div class="card-body mt-5">
-                    <div class="card-title2">DATA POLIKLINIK</div>
+                    <div class="card-title">DATA POLIKLINIK</div>
                     <a href="dataPoliklinik" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
                   </div>
                 </div>
@@ -54,7 +60,7 @@
                   </div>
                   <div class="col-6">
                     <div class="card-body mt-5">
-                      <div class="card-title2">DATA DOKTER</div>
+                      <div class="card-title">DATA DOKTER</div>
                       <a href="dataDokter" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
                     </div>
                   </div>
@@ -105,14 +111,24 @@ export default {
 
 <style>
 .title{
-  font-size: 2.5vw;
-  font-weight: bold;
+  font-size: 2.3vw;
+  font-weight: 500;
   color: #0957DE;
-  text-shadow: 1px 3px 3px rgba(124, 124, 124, 0.7);
+  text-shadow: 1px 3px 3px rgba(124, 124, 124, 0.5);
+}
+.date{
+  font-size: 1.5vw;
+  color: black;
+  margin-top: 15px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+.head{
+  max-width: 1800px;
 }
 .page{
     background-color: whitesmoke;
-    height: 100%;
+    height: 100vh;
 }
 .banner{
   max-height: 500px;
@@ -121,7 +137,7 @@ export default {
   max-width: 1800px;
   margin-top: 50px;
 }
-.card-title2{
+.card-title{
   font-weight: bold;
   font-size: 1.5vw;
 }
@@ -139,7 +155,7 @@ export default {
   padding: 17px;
   box-shadow: 1px 3px 3px rgba(124, 124, 124, 0.7);
 }
-.btn:hover {
+.btnHome:hover {
   background-color: white;
   color: #0957DE;
 }
@@ -158,6 +174,5 @@ export default {
   background-color: white;
   border-color: rgb(0, 202, 202);
   color: rgb(0, 202, 202);
-  text-decoration: none;
 }
 </style>

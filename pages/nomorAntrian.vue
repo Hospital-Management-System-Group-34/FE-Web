@@ -79,16 +79,44 @@
               <a href="adminHome" class="btn btn1 btn-block">Home</a>
             </div>
             <div class="col-4">
-              <a href="adminHome" class="btn btn2 btn-block">Daftar Lagi</a>
+              <a href="daftarPasien" class="btn btn2 btn-block">Daftar Lagi</a>
             </div>
             <div class="col-4">
-              <a href="adminHome" class="btn btn3 btn-block">Print</a>
+              <a @click="cekData" class="btn btn3 btn-block">Print</a>
             </div>
           </div>
 
     </div>
   </div>
 </template>
+
+<script src="@/assets/js/app.js">
+</script>
+<script>
+export default {
+
+  middleware: 'auth',
+
+  methods: {
+  async cekData(){
+    try{
+      const resp = await this.$axios.$get('http://18.141.205.74:9000/patients')
+      console.log(resp.data)
+    } catch(e) {
+      console.log(e.response)
+    }
+  
+  // console.log(
+  //   this.patientName,
+  //   this.patientGender,
+  //   this.patientNik,
+  //   this.patientPhone,
+  // )
+}
+}
+  
+}
+</script>
 
 <style>
 .page{
