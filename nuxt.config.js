@@ -1,5 +1,11 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+
+  // generate
+  generate: {
+    fallback: true
+  },
+  
   head: {
     title: 'simars',
     htmlAttrs: {
