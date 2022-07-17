@@ -31,12 +31,13 @@ const actions = {
         })
 
         .then((response)=> {
-            if (response.code === 200){
-                store.commit("setLoggedIn", response.data.userName);
+            console.log(response);
+            if (response.data.code === 200){
+                store.commit("setLoggedIn", response.data.data.userName);
                 return response;
             }
             else{
-                store.commit("setInfo", response.status);
+                store.commit("setInfo", response.data.status);
             }
         })
 

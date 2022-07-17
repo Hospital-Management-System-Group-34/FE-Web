@@ -66,13 +66,8 @@ export default {
         this.$router.push('/adminHome')
         
       } catch(e) {
-        if(e.status === "fail")
-        {
+        console.log(e.message);
           this.error = "Credentials Salah, silahkan masukkan data yang benar!"
-        }else{
-          this.error = e.message
-        }
-        
       }        
       }
       else{
