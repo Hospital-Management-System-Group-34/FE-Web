@@ -21,8 +21,8 @@
                 <div class="card-img">
                   <img src="~assets/img/pana.png" class="img-fluid" alt="">
                   <p class="card-text mt-3">Saat ini, {{timestamp}}</p>
-                  <a href="daftarPasien" class="btnHome btn btn-primary btn-block mb-3">+ Pendaftaran pasien baru</a>
-                  <a href="daftarPasien" class="btnHome btn1 btn btn-primary btn-block mb-4">+ Pendaftaran pasien lama</a>
+                  <a href="/daftarPasien" class="btnHome btn btn-primary btn-block mb-3">+ Pendaftaran pasien baru</a>
+                  <a href="/daftarPasien" class="btnHome btn1 btn btn-primary btn-block mb-4">+ Pendaftaran pasien lama</a>
                 </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
                 <div class="col-6">
                   <div class="card-body mt-5">
                     <div class="card-title">DATA POLIKLINIK</div>
-                    <a href="dataPoliklinik" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
+                    <a href="/dataPoliklinik" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                   <div class="col-6">
                     <div class="card-body mt-5">
                       <div class="card-title">DATA DOKTER</div>
-                      <a href="dataDokter" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
+                      <a href="/dataDokter" class="btnHome btn btn-primary btn-block mb-4">LIHAT DATA</a>
                     </div>
                   </div>
                 </div>

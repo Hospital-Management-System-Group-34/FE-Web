@@ -4,10 +4,10 @@
     <div class="containerDetailPasien container mb-4">
       <div class="row">
         <div>
-          <a class="link" href="adminHome">Home</a> <strong>></strong>
-          <a class="link" href="dataPasien">Data Pasien</a> <strong>></strong>
+          <a class="link" href="/adminHome">Home</a> <strong>></strong>
+          <a class="link" href="/dataPasien">Data Pasien</a> <strong>></strong>
           <a class="link" href="" style="font-weight: bold"><strong>Detail Pasien</strong></a> <strong>></strong>
-          <a class="link" href="riwayatPasienM">Riwayat Pasien</a>
+          <a class="link" href="/riwayatPasienM">Riwayat Pasien</a>
         </div>
       </div>
     </div>
@@ -28,10 +28,10 @@
                 <div class="col-6">
                   <div class="row text-center" style="height: auto">
                     <div class="col-6" style="background-color: #0957DE;padding: 10px;border-radius: 7px 0 0 7px">
-                      <a class="detail" href="detailPasienM">Detail Pasien</a>
+                      <a class="detail" href="/detailPasienM">Detail Pasien</a>
                     </div>
                     <div class="col-6" style="border: 1px solid #0957DE;padding: 10px;border-radius: 0 7px 7px 0">
-                      <a class="jadwal" href="rekamMedisM">Rekam Medis</a>
+                      <a class="jadwal" href="/rekamMedisM">Rekam Medis</a>
                     </div>
                   </div>
                   <div>

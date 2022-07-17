@@ -4,7 +4,7 @@
     <div class="container2 container mb-4">
       <div class="row">
         <div>
-          <a class="link" href="adminHome">Home</a> <strong>></strong>
+          <a class="link" href="/adminHome">Home</a> <strong>></strong>
           <a class="link" href="" style="font-weight: bold"><strong>Data Dokter</strong></a>
         </div>
       </div>
@@ -37,7 +37,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>

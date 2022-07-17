@@ -4,7 +4,7 @@
     <div class="containerDataPasien container mb-4">
       <div class="row">
         <div>
-          <a class="link" href="adminHome">Home</a> <strong>></strong>
+          <a class="link" href="a/dminHome">Home</a> <strong>></strong>
           <a class="link" href="" style="font-weight: bold"><strong>Data Pasien</strong></a>
         </div>
       </div>
@@ -33,7 +33,7 @@
                     <td>27/05/2022</td>
                     <td>
                       <div class="row">
-                        <div class="col-6"><a href="detailPasienM" class="btnDataPasien btn btn-primary">Lihat</a></div>
+                        <div class="col-6"><a href="/detailPasienM" class="btnDataPasien btn btn-primary">Lihat</a></div>
                         <div class="col-6"><a href="" class="btnDataPasien btn btn-danger">Hapus</a></div>
                       </div>
                     </td>
@@ -45,7 +45,7 @@
                     <td>27/05/2022</td>
                     <td>
                       <div class="row">
-                        <div class="col-6"><a href="detailPasienM" class="btnDataPasien btn btn-primary">Lihat</a></div>
+                        <div class="col-6"><a href="/detailPasienM" class="btnDataPasien btn btn-primary">Lihat</a></div>
                         <div class="col-6"><a href="" class="btnDataPasien btn btn-danger">Hapus</a></div>
                       </div>
                     </td>

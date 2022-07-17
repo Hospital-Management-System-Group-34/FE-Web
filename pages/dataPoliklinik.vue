@@ -50,7 +50,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -70,7 +70,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -92,7 +92,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -112,7 +112,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -132,7 +132,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>

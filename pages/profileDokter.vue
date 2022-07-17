@@ -4,7 +4,7 @@
     <div class="containerDetailDokter container mb-4">
       <div class="row">
         <div>
-          <a class="link" href="adminHome">Home</a> <strong>></strong>
+          <a class="link" href="/adminHome">Home</a> <strong>></strong>
           <a class="link" href="" style="font-weight: bold"><strong>Data Dokter</strong></a>
         </div>
       </div>
@@ -46,10 +46,10 @@
                 </div>
                 <div class="col-6">
                   <div class="row text-center" style="height: auto">
-                    <a class="col-6" href="profileDokter" style="background-color: #0957DE;padding: 10px;border-radius: 7px 0 0 7px">
+                    <a class="col-6" href="/profileDokter" style="background-color: #0957DE;padding: 10px;border-radius: 7px 0 0 7px">
                       <div class="detail">Profile Dokter</div>
                     </a>
-                    <a class="col-6" href="jadwalPraktik" style="border: 1px solid #0957DE;padding: 10px;border-radius: 0 7px 7px 0">
+                    <a class="col-6" href="/jadwalPraktik" style="border: 1px solid #0957DE;padding: 10px;border-radius: 0 7px 7px 0">
                       <div class="jadwal" >Jadwal Praktik</div>
                     </a>
                   </div>

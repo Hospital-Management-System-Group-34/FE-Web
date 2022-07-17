@@ -4,9 +4,9 @@
     <div class="containerRiwayatPasien container mb-4">
       <div class="row">
         <div>
-          <a class="link" href="adminHome">Home</a> <strong>></strong>
-          <a href="dataPasien">Data Pasien</a> <strong>></strong>
-          <a href="detailPasienM">Detail Pasien</a> <strong>></strong>
+          <a class="link" href="/adminHome">Home</a> <strong>></strong>
+          <a href="/dataPasien">Data Pasien</a> <strong>></strong>
+          <a href="/detailPasienM">Detail Pasien</a> <strong>></strong>
           <a class="link" href="" style="font-weight: bold"><strong>Riwayat Pasien</strong></a>
         </div>
       </div>
