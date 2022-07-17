@@ -4,7 +4,7 @@
     <div class="containerDataPasien container mb-4">
       <div class="row">
         <div>
-          <a class="link" href="a/dminHome">Home</a> <strong>></strong>
+          <a class="link" href="/adminHome">Home</a> <strong>></strong>
           <a class="link" href="" style="font-weight: bold"><strong>Data Pasien</strong></a>
         </div>
       </div>
