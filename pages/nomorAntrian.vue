@@ -1,12 +1,12 @@
 <template>
-  <div class="page">
+  <div id="content" class="pageAntrian page">
     <div class="container-fluid text-center">
       <h1 style="color: #0957DE">
         <strong>
           KARTU ANTRIAN
         </strong>
       </h1>
-        <div class="card mt-5">
+        <div class="cardAntrian card mt-5">
           <div class="card-title">
             No Antrian
           </div>
@@ -82,7 +82,8 @@
               <a href="daftarPasien" class="btn btn2 btn-block">Daftar Lagi</a>
             </div>
             <div class="col-4">
-              <a @click="cekData" class="btn btn3 btn-block">Print</a>
+              <a @click="createPDF" class="btn btn3 btn-block">Print</a>
+              <!-- <a @click="cekData" class="btn btn3 btn-block">Print</a> -->
             </div>
           </div>
 
@@ -93,6 +94,9 @@
 <script src="@/assets/js/app.js">
 </script>
 <script>
+
+import { jsPDF } from "jspdf"
+
 export default {
 
   middleware: 'auth',
@@ -112,14 +116,28 @@ export default {
   //   this.patientNik,
   //   this.patientPhone,
   // )
-}
+},
+
+  createPDF () {
+    const doc = new jsPDF()
+
+    console.log(this.$refs);
+    const html = this.$refs.content.innerHTML
+
+    doc.fromHTML(html,15,15,{
+      width: 150
+    })
+
+    doc.save("output.pdf")
+  }
+
 }
   
 }
 </script>
 
 <style>
-.page{
+.pageAntrian{
   background-image: url("~/assets/img/bgantrian.png");
   height: 100vh;
   background-size: cover;
@@ -131,7 +149,7 @@ export default {
   margin-top: 100px;
   width: 650px  ;
 }
-.card{
+.cardAntrian{
   border: none;
   border-radius: 10px;
 }

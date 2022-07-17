@@ -77,6 +77,14 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  middleware: 'auth',
+
+}
+</script>
+
 <style>
 .pageDetailDokter{
   background-color: whitesmoke;

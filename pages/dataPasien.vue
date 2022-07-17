@@ -60,6 +60,14 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  middleware: 'auth',
+
+}
+</script>
+
 <style>
 .pageDataPasien{
   background-color: whitesmoke;

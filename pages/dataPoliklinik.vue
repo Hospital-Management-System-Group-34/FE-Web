@@ -149,6 +149,14 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  middleware: 'auth',
+
+}
+</script>
+
 <style>
 .page2{
     background-color: whitesmoke;

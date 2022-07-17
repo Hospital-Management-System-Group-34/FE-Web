@@ -88,6 +88,14 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  middleware: 'auth',
+
+}
+</script>
+
 <style>
 .pageJadwalPraktik{
   background-color: whitesmoke;

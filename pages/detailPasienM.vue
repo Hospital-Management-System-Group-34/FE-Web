@@ -36,25 +36,40 @@
                   </div>
                   <div>
                     <h4 class="mt-4">NIK</h4>
-                    <h5 class="label mt-4">1234567890</h5>
+                    <h5 class="label mt-4">
+                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="1234567890">
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">No. Rekam Medis</h4>
-                    <h5 class="label mt-4">PS.1234567890</h5>
+                    <h5 class="label mt-4">
+                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="PS.1234567890">
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Nama Lengkap</h4>
-                    <h5 class="label mt-4">Tengku Mahmudi</h5>
+                    <h5 class="label mt-4">
+                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="Tengku Mahmudi">
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Jenis Kelamin</h4>
-                    <h5 class="label mt-4">Laki - Laki</h5>
+                    <h5 class="label mt-4">
+                      <select id="Jenis Kelamin" class="label form-control-plaintext" :disabled="disable">
+                          <option>-- Jenis Kelamin --</option>
+                          <option selected>Laki-Laki</option>
+                          <option>Perempuan</option>
+                      </select>
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">No. HP</h4>
-                    <h5 class="label mt-4">0812345678</h5>
+                    <h5 class="label mt-4">
+                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="0812345678">
+                    </h5>
                   </div>
-                  <button class="mt-5 btnDetailPasien btn btn-block">EDIT</button>
+                  <button v-if="disable" class="mt-5 btnDetailPasien btn btn-block" @click="editForm">EDIT</button>
+                  <button v-else class="mt-5 btnDetailPasien btn btn-block" @click="editForm">CONFIRM</button>
                 </div>
               </div>
             </div>
@@ -64,6 +79,30 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+
+  middleware: 'auth',
+
+  data(){
+    return{
+      disable: true
+    }
+  },
+  methods: {
+    editForm(){
+      if (this.disable == true)
+      {
+        this.disable = false
+      }
+      else{
+        this.disable = true
+      }
+    }
+  }
+}
+</script>
 
 <style>
 .pageDetailPasien{

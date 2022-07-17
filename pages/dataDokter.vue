@@ -144,6 +144,14 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  middleware: 'auth',
+  
+}
+</script>
+
 <style>
 .pageDataDokter{
   background-color: whitesmoke;

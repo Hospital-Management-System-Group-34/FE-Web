@@ -64,6 +64,14 @@
   </div>
 </template>
 
+<script>
+export default {
+
+  middleware: 'auth',
+
+}
+</script>
+
 <style>
 .btnRekamMedis2{
   padding: 10px;

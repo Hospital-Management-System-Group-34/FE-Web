@@ -14,15 +14,21 @@
           </strong>
         </h4>
       <form method="post" class="formm form" @submit.prevent="login">
+        <div v-if="error">
+          <b>Please correct the following error(s):</b>
+            <ul>
+              <li>{{ error }}</li>
+            </ul>
+        </div>
       <div class="form-group">
         <label for="" style="font-weight: bold">ID</label>
-        <input type="text" class="form-control" id="id" v-model="id" placeholder="Masukkan ID Kamu" required>
+        <input type="text" class="form-control" id="id" v-model="id" placeholder="Masukkan ID Kamu" autocomplete required>
       </div>
       <div class="form-group mt-5">
         <label for="" style="font-weight: bold">Password</label>
         <input type="password" class="form-control" id="password" v-model="password" placeholder="Masukkan Password" required>
       </div>
-      <button type="submit" class="btnn btn btn-primary btn-block mt-4"><strong>Masuk</strong></button>
+      <button type="submit" @click="setID" class="btnn btn btn-primary btn-block mt-4" data-toggle="modal" data-target="#exampleModalCenter"><strong>Masuk</strong></button>
     </form>
       </div>
     </div>
@@ -30,13 +36,7 @@
 </template>
 
 <script>
-export default {
-  name: 'IndexPage',
 
-}
-</script>
-
-<script>
 export default {
   name: 'IndexPage',
 
@@ -47,24 +47,44 @@ export default {
     return {
       id: '',
       password: '',
-      error: null
+      error: null,
+      errors: [],
     }
   },
 
   methods: {
     async login() {
-      try{
-        await this.$auth.loginWith('local', {
+      if(this.id.length >= 7){
+              try{
+        const result = await this.$auth.loginWith('local', {
           data: {
             id: this.id,
             password: this.password
           }
         })
-
+        // this.$auth.setUserToken(result.token, result.token)
         this.$router.push('/adminHome')
+        
       } catch(e) {
-        this.error = e.response.data.message
+        if(e.status === "fail")
+        {
+          this.error = "Credentials Salah, silahkan masukkan data yang benar!"
+        }else{
+          this.error = e.message
+        }
+        
+      }        
       }
+      else{
+        this.error = 'ID terlalu pendek, minimal 7 karakter!'
+      }
+
+    },
+
+    setID(){
+      this.$store.dispatch("admin/setAdmin",{
+        id: this.id, password: this.password
+      })
     }
   }
 

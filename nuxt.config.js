@@ -29,7 +29,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '~/plugins/persistedState.client.js' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -49,7 +49,9 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // browserBaseURL: '/',
-    baseURL: 'http://18.141.205.74:9000/',
+    // baseURL: 'https://api.gms.mirfanrafif.me',
+    baseURL: 'https://shaggy-badger-99.a276.dcdg.xyz',
+    // baseURL: 'https://virtserver.swaggerhub.com/G2731/GymMembership/1.0/user/'
     // proxy: true
     // proxy: false,
     // prefix: process.env.API_URL,
@@ -57,15 +59,18 @@ export default {
   },
 
   // proxy: {
-  //   '/api/': ''
+  //   '/api/': 'https://shaggy-badger-99.a276.dcdg.xyz'
   // },
 
   auth: {
     strategies: {
       local: {
         endpoints: {
+          // login: { url: 'admin/login', method: 'post', propertyName: 'token'},
+          // user: { url: 'admin', method: 'get', propertyName: 'data'},
           login: { url: 'login', method: 'post', propertyName: 'data.accessToken'},
           // login: { url: 'login', method: 'post', propertyName: 'data.token'},
+          // user: {url:'user', method: 'get', propertyName: 'data'},
           user: {url:'users/doctor-1', method: 'get', propertyName: 'data.user'},
           // user: {url:'', method: 'get', propertyName: 'data'},
           logout: false,

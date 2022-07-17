@@ -1,10 +1,10 @@
 <template>
-  <div class="page">
+  <div class="pageHome page">
     <Header />
     <div class="container head">
       <div class="row">
         <div class="col-6">
-          <h1 class="title">Selamat Pagi {{loggedInUser.name}}!</h1>
+          <h1 class="titleHome title">Selamat Pagi {{idComputed}}!</h1>
         </div>
         <div class="col-6">
           <h1 class="date text-right">{{timestamp}}</h1>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 export default {
 
@@ -93,8 +93,25 @@ export default {
 
   methods: {
     getNow(){
+      var weekday=new Array(7);
+        // weekday[0]="Monday";
+        // weekday[1]="Tuesday";
+        // weekday[2]="Wednesday";
+        // weekday[3]="Thursday";
+        // weekday[4]="Friday";
+        // weekday[5]="Saturday";
+        // weekday[6]="Sunday";
+
+        weekday[0]="Senin";
+        weekday[1]="Selasa";
+        weekday[2]="Rabu";
+        weekday[3]="Kamis";
+        weekday[4]="Jumat";
+        weekday[5]="Sabtu";
+        weekday[6]="Minggu";
+
       const today = new Date();
-      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      const date = weekday[today.getDay()]+', ' + today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = date +' '+ time;
 
@@ -103,14 +120,17 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser'])
+    // ...mapGetters(['isAuthenticated', 'loggedInUser'])
     // ...mapGetters(['isAuthenticated'])
+    idComputed(){
+      return this.$store.state.admin.loggedIn
+    }
   }
 }
 </script>
 
 <style>
-.title{
+.titleHome{
   font-size: 2.3vw;
   font-weight: 500;
   color: #0957DE;
@@ -126,7 +146,7 @@ export default {
 .head{
   max-width: 1800px;
 }
-.page{
+.pageHome{
     background-color: whitesmoke;
     height: 100vh;
 }
