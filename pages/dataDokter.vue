@@ -18,7 +18,37 @@
                 <h5 class="card-title pl-4">Data Dokter</h5>
               </div>
               <div class="col-6">
-                <a href="" class="btnDataDokter btn2 btn btn-block">TAMBAH DATA DOKTER</a>
+                <button class="btnDataDokter btn2 btn btn-block" @click="showModal = true">TAMBAH DATA DOKTER</button>
+                <Modal v-if="showModal" @close="showModal = false">
+                  <h3 style="text-align:center" slot="header">Form Tambah Dokter</h3>
+
+                  <form method="post" class="form" slot="body">
+                    <div class="form-group">
+                      <label class=" labelForm label" for="nama">Nama Dokter :</label>
+                      <input id="nama" type="text" placeholder="Nama Dokter">
+                    </div>
+                    <div class="form-group">
+                      <label class="labelForm label" for="speciality">Spesialitas :</label>
+                      <input id="speciality" type="text" placeholder="Spesialitas Dokter">
+                    </div>
+                    <div class="form-group">
+                      <label class=" labelForm label" for="nomorTelp">Nomor Telepon :</label>
+                      <input id="nomorTelp" type="text" placeholder="Kontak Dokter">
+                    </div>
+                    <div class="form-group">
+                      <label class="labelForm label" for="pass">Password :</label>
+                      <input id="napassma" type="text" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <label class="labelForm label" for="role">Role :</label>
+                      <select>
+                        <option value="role-1">Dokter</option>
+                        <option value="role-2">Perawat</option>
+                      </select>
+                    </div>
+                  </form>
+
+                </Modal>
               </div>
             </div>
             <div class="container-fluid text-center mb-5">
@@ -55,7 +85,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -73,7 +103,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -93,7 +123,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -111,7 +141,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -129,7 +159,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -145,10 +175,17 @@
 </template>
 
 <script>
+import Modal from '~/components/modal.vue';
 export default {
+    middleware: "auth",
+    
+    components: { Modal },
 
-  middleware: 'auth',
-  
+    data(){
+      return{
+        showModal: false,
+      }
+    }
 }
 </script>
 
@@ -228,5 +265,8 @@ export default {
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);
+}
+.labelForm{
+  display: block;
 }
 </style>

@@ -55,15 +55,17 @@ export default {
   methods: {
     async login() {
       if(this.id.length >= 7){
-              try{
+        try{
         const result = await this.$auth.loginWith('local', {
           data: {
             id: this.id,
             password: this.password
           }
         })
-        // this.$auth.setUserToken(result.token, result.token)
-        this.$router.push('/adminHome')
+
+        .then(() => {
+          this.$router.push('/adminHome')
+        })
         
       } catch(e) {
         console.log(e.message);

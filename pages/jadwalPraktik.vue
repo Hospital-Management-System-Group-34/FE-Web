@@ -40,7 +40,11 @@
                       </div>
                     </div>
                       <div class="card-title">
-                        <a href="">Lihat Surat Izin</a>
+                        <a class="c" @click="showModal = true">Lihat Surat Izin</a>
+                        <Modal v-if="showModal" @close="showModal = false">
+                          <h3 style="text-align:center" slot="header">Modal Surat Izin</h3>
+                          <img slot="body" src="~/assets/img/SOP-SIP.jpg"/>
+                        </Modal>
                       </div>
                   </div>
                 </div>
@@ -55,29 +59,90 @@
                   </div>
                   <div>
                     <h4 class="mt-4">Senin</h4>
-                    <h5 class="label mt-4">08:00 - 11:00</h5>
+                    <h5 class="label mt-4">
+                        <select id="time" class="label form-control-plaintext" :disabled="disable">
+                          <option value="schedule-1" selected>-- 08:00-11:00 --</option>
+                          <option value="schedule-2">-- 09:00-11:00 --</option>
+                          <option value="schedule-3">-- 10:00-11:00 --</option>
+                          <option value="schedule-4">-- 13:00-17:00 --</option>
+                          <option value="schedule-5">-- 14:00-17:00 --</option>
+                          <option value="schedule-6">-- 15:00-17:00 --</option>
+                          <option value="schedule-7">-- 16:00-17:00 --</option>
+                        </select>
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Selasa</h4>
-                    <h5 class="label mt-4">08:00 - 11:00</h5>
+                    <h5 class="label mt-4">
+                        <select id="time" class="label form-control-plaintext" :disabled="disable">
+                          <option value="schedule-1" selected>-- 08:00-11:00 --</option>
+                          <option value="schedule-2">-- 09:00-11:00 --</option>
+                          <option value="schedule-3">-- 10:00-11:00 --</option>
+                          <option value="schedule-4">-- 13:00-17:00 --</option>
+                          <option value="schedule-5">-- 14:00-17:00 --</option>
+                          <option value="schedule-6">-- 15:00-17:00 --</option>
+                          <option value="schedule-7">-- 16:00-17:00 --</option>
+                        </select>
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Rabu</h4>
-                    <h5 class="label mt-4">08:00 - 11:00</h5>
+                    <h5 class="label mt-4">
+                        <select id="time" class="label form-control-plaintext" :disabled="disable">
+                          <option value="schedule-1" selected>-- 08:00-11:00 --</option>
+                          <option value="schedule-2">-- 09:00-11:00 --</option>
+                          <option value="schedule-3">-- 10:00-11:00 --</option>
+                          <option value="schedule-4">-- 13:00-17:00 --</option>
+                          <option value="schedule-5">-- 14:00-17:00 --</option>
+                          <option value="schedule-6">-- 15:00-17:00 --</option>
+                          <option value="schedule-7">-- 16:00-17:00 --</option>
+                        </select>
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Kamis</h4>
-                    <h5 class="label mt-4">08:00 - 11:00</h5>
+                    <h5 class="label mt-4">
+                        <select id="time" class="label form-control-plaintext" :disabled="disable">
+                          <option value="schedule-1" selected>-- 08:00-11:00 --</option>
+                          <option value="schedule-2">-- 09:00-11:00 --</option>
+                          <option value="schedule-3">-- 10:00-11:00 --</option>
+                          <option value="schedule-4">-- 13:00-17:00 --</option>
+                          <option value="schedule-5">-- 14:00-17:00 --</option>
+                          <option value="schedule-6">-- 15:00-17:00 --</option>
+                          <option value="schedule-7">-- 16:00-17:00 --</option>
+                        </select>
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Jumat</h4>
-                    <h5 class="label mt-4">08:00 - 11:00</h5>
+                    <h5 class="label mt-4">
+                        <select id="time" class="label form-control-plaintext" :disabled="disable">
+                          <option value="schedule-1" selected>-- 08:00-11:00 --</option>
+                          <option value="schedule-2">-- 09:00-11:00 --</option>
+                          <option value="schedule-3">-- 10:00-11:00 --</option>
+                          <option value="schedule-4">-- 13:00-17:00 --</option>
+                          <option value="schedule-5">-- 14:00-17:00 --</option>
+                          <option value="schedule-6">-- 15:00-17:00 --</option>
+                          <option value="schedule-7">-- 16:00-17:00 --</option>
+                        </select>
+                    </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Sabtu</h4>
-                    <h5 class="label mt-4">08:00 - 11:00</h5>
+                    <h5 class="label mt-4">
+                        <select id="time" class="label form-control-plaintext" :disabled="disable">
+                          <option value="schedule-1" selected>-- 08:00-11:00 --</option>
+                          <option value="schedule-2">-- 09:00-11:00 --</option>
+                          <option value="schedule-3">-- 10:00-11:00 --</option>
+                          <option value="schedule-4">-- 13:00-17:00 --</option>
+                          <option value="schedule-5">-- 14:00-17:00 --</option>
+                          <option value="schedule-6">-- 15:00-17:00 --</option>
+                          <option value="schedule-7">-- 16:00-17:00 --</option>
+                        </select>
+                    </h5>
                   </div>
-                  <button class="mt-5 btnJadwalPraktik btn btn-block">EDIT</button>
+                  <button v-if="disable" class="mt-5 btnJadwalPraktik btn btn-block" @click="editForm">EDIT</button>
+                  <button v-else class="mt-5 btnJadwalPraktik btn btn-block" @click="editForm">CONFIRM</button>                  
                 </div>
               </div>
             </div>
@@ -89,10 +154,26 @@
 </template>
 
 <script>
+import Modal from "../components/modal.vue";
 export default {
-
-  middleware: 'auth',
-
+    middleware: "auth",
+    data() {
+        return {
+            disable: true,
+            showModal: false,
+        };
+    },
+    methods: {
+        editForm() {
+            if (this.disable == true) {
+                this.disable = false;
+            }
+            else {
+                this.disable = true;
+            }
+        }
+    },
+    components: { Modal }
 }
 </script>
 
@@ -203,5 +284,16 @@ h2{
   background-color: white;
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);
+}
+.c{
+  color: white;
+}
+.c:hover{
+ color: white !important;
+ cursor: pointer;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
 </style>

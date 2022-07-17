@@ -65,6 +65,12 @@ export default {
   auth: {
     strategies: {
       local: {
+        scheme: 'refresh',
+        refreshToken: {
+          property: 'data.refreshToken',
+          data: 'data.refreshToken',
+          maxAge: 60 * 60 * 24 * 30
+        },
         endpoints: {
           // login: { url: 'admin/login', method: 'post', propertyName: 'token'},
           // user: { url: 'admin', method: 'get', propertyName: 'data'},
@@ -73,6 +79,7 @@ export default {
           // user: {url:'user', method: 'get', propertyName: 'data'},
           user: {url:'users/doctor-1', method: 'get', propertyName: 'data.user'},
           // user: {url:'', method: 'get', propertyName: 'data'},
+          refresh: { url: 'login', method: 'post', propertyName: 'data.refreshToken' },
           logout: false,
           // logout: {url: 'logout', method: 'post'},
         }

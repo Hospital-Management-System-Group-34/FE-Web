@@ -1,12 +1,12 @@
 <template>
-  <div id="content" class="pageAntrian page">
+  <div id="content" ref="content" class="pageAntrian page">
     <div class="container-fluid text-center">
       <h1 style="color: #0957DE">
         <strong>
           KARTU ANTRIAN
         </strong>
       </h1>
-        <div class="cardAntrian card mt-5">
+        <div id="card" ref="card" class="cardAntrian card mt-5">
           <div class="card-title">
             No Antrian
           </div>
@@ -82,7 +82,7 @@
               <a href="/daftarPasien" class="btn btn2 btn-block">Daftar Lagi</a>
             </div>
             <div class="col-4">
-              <a @click="createPDF" class="btn btn3 btn-block">Print</a>
+              <a @click="pdfGenerate" class="btn btn3 btn-block">Print</a>
               <!-- <a @click="cekData" class="btn btn3 btn-block">Print</a> -->
             </div>
           </div>
@@ -96,6 +96,8 @@
 <script>
 
 import { jsPDF } from "jspdf"
+
+import html2canvas from 'html2canvas'
 
 export default {
 
@@ -118,20 +120,26 @@ export default {
   // )
 },
 
-  createPDF () {
-    const doc = new jsPDF()
+  pdfGenerate(){
+    const quality = 1 // Higher the better but larger file
 
-    console.log(this.$refs);
-    const html = this.$refs.content.innerHTML
-
-    doc.fromHTML(html,15,15,{
-      width: 150
-    })
-
-    doc.save("output.pdf")
+    html2canvas(document.querySelector('#content'),
+     { 
+      scale: quality
+     }
+      ).then(canvas => {
+        const pdf = new jsPDF('l', 'mm', 'a4');
+        var width = pdf.internal.pageSize.getWidth();
+        var height = pdf.internal.pageSize.getHeight();
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, width, height);
+        pdf.save('op.pdf');
+      });
   }
 
-}
+},
+mounted(){
+    console.log("HTML", this.$el.innerHTML)
+  }
   
 }
 </script>

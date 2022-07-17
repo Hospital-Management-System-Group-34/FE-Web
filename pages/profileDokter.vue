@@ -40,7 +40,11 @@
                       </div>
                     </div>
                       <div class="card-title">
-                        <a href="">Lihat Surat Izin</a>
+                        <a class="c" @click="showModal = true">Lihat Surat Izin</a>
+                        <Modal v-if="showModal" @close="showModal = false">
+                          <h3 style="text-align:center" slot="header">Modal Surat Izin</h3>
+                          <img slot="body" src="~/assets/img/SOP-SIP.jpg"/>
+                        </Modal>
                       </div>
                   </div>
                 </div>
@@ -103,13 +107,17 @@
 </template>
 
 <script>
+import Modal from "../components/modal.vue";
 export default {
 
 middleware: 'auth',
 
+
+
 data(){
   return{
-    disable: true
+    disable: true,
+    showModal: false,
   }
 },
 methods: {
@@ -122,7 +130,8 @@ methods: {
       this.disable = true
     }
   }
-}
+},
+components: { Modal },
 }
 </script>
 
@@ -238,4 +247,16 @@ h2{
   border-color: rgb(165, 165, 165);
   color: rgb(165, 165, 165);
 }
+.c{
+  color: white;
+}
+.c:hover{
+ color: white !important;
+ cursor: pointer;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 </style>

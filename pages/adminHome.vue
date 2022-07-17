@@ -4,7 +4,7 @@
     <div class="container head">
       <div class="row">
         <div class="col-6">
-          <h1 class="titleHome title">Selamat Pagi {{idComputed}}!</h1>
+          <h1 class="titleHome title">Selamat Datang {{idComputed}}!</h1>
         </div>
         <div class="col-6">
           <h1 class="date text-right">{{timestamp}}</h1>
@@ -22,7 +22,7 @@
                   <img src="~assets/img/pana.png" class="img-fluid" alt="">
                   <p class="card-text mt-3">Saat ini, {{timestamp}}</p>
                   <a href="/daftarPasien" class="btnHome btn btn-primary btn-block mb-3">+ Pendaftaran pasien baru</a>
-                  <a href="/daftarPasien" class="btnHome btn1 btn btn-primary btn-block mb-4">+ Pendaftaran pasien lama</a>
+                  <a href="/daftarPasienLama" class="btnHome btn1 btn btn-primary btn-block mb-4">+ Pendaftaran pasien lama</a>
                 </div>
             </div>
           </div>
