@@ -126,6 +126,7 @@ export default {
       .then((res) => {
         if (res.code === 200) {
           this.$router.push("/daftarBerhasil");
+          this.$store.commit("admin/setPatientID", this.patientID);
         }
         else {
           console.log(res.status);
