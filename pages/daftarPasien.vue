@@ -22,8 +22,8 @@
                       <input type="number" class="form-control mb-2" :style="{  borderColor: `${borderColor}`, backgroundColor: `${backgroundColor}`, }" v-model="patientNik" id="nik" placeholder="Masukkan nomer NIK" required>
                       <small class="text">*NIK harus 16 digit</small> <br>
 
-                      <label for="norek" class="label mt-4">No. Rekam Medis</label>
-                      <input type="text" class="form-control mb-2" id="norek" placeholder="PS.123456789">
+                      <!-- <label for="norek" class="label mt-4">No. Rekam Medis</label>
+                      <input type="text" class="form-control mb-2" id="norek" placeholder="PS.123456789"> -->
 
                       <label for="name" class="label mt-4">Nama Lengkap</label>
                       <input type="text" class="form-control mb-2" v-model="patientName" id="name" placeholder="Alterra" required>
@@ -105,7 +105,7 @@ export default {
             patientDoctorID: "",
             patientScheduleID: "",
             patientComplaint: "",
-            patientDate: "",
+            patientDate: new Date().toISOString().slice(0,10),
             error: null,
             borderColor: '',
             backgroundColor: '#fff',
@@ -162,6 +162,7 @@ export default {
                                 alert("Please correct the following error(s): \n" + `${this.error}`);
                             }
                         });
+
                     }
                     catch (e) {
                         console.log(e.message);
@@ -207,6 +208,11 @@ export default {
             // )
         }
     },
+    computed:{
+    },
+    mounted(){
+      console.log(this.patientDate)
+    }
 }
 </script>
 

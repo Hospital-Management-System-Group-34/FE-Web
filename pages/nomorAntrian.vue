@@ -75,13 +75,13 @@
         </div>
 
           <div class="row mt-5 text-center">
-            <div class="col-4">
+            <div class="col-6">
               <a href="/adminHome" class="btn btn1 btn-block">Home</a>
             </div>
-            <div class="col-4">
+            <!-- <div class="col-4">
               <a href="/daftarPasien" class="btn btn2 btn-block">Daftar Lagi</a>
-            </div>
-            <div class="col-4">
+            </div> -->
+            <div class="col-6">
               <a @click="pdfGenerate" class="btn btn3 btn-block">Print</a>
               <!-- <a @click="cekData" class="btn btn3 btn-block">Print</a> -->
             </div>
