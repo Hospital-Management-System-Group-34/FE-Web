@@ -19,20 +19,20 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="id" class="label">ID</label>
-                      <input type="number" class="form-control mb-2" v-model="patientID" id="id" placeholder="Masukkan nomor ID Pasien" required>
+                      <input type="text" class="form-control mb-2" v-model="patientID" id="id" placeholder="Masukkan nomor ID Pasien" required>
                       <small class="text">*ID harus terdaftar di database !</small> <br>
 
                       <label for="norek" class="label mt-4">No. Rekam Medis</label>
-                      <input type="text" class="form-control mb-2" id="norek" placeholder="PS.123456789">
+                      <input type="text" class="form-control mb-2" v-model="patientMedicalRecord" id="norek" placeholder="PS.123456789" disabled>
 
                       <label for="name" class="label mt-4">Nama Lengkap</label>
-                      <input type="text" class="form-control mb-2" v-model="patientName" id="name" placeholder="Alterra" required>
+                      <input type="text" class="form-control mb-2" v-model="patientName" id="name" placeholder="Alterra" disabled>
 
                       <label for="no" class="label mt-4">No. HP</label>
-                      <input type="number" class="form-control mb-2" v-model="patientPhone" id="no" placeholder="082213273168" required>
+                      <input type="number" class="form-control mb-2" v-model="patientPhone" id="no" placeholder="082213273168" disabled>
 
                       <label for="sex" class="label mt-4">Jenis Kelamin</label>
-                        <select id="sex" class="form-control" v-model="patientGender" required>
+                        <select id="sex" class="form-control" v-model="patientGender" disabled>
                           <option selected>-- PILIH JENIS KELAMIN --</option>
                           <option>Laki-Laki</option>
                           <option>Perempuan</option>
@@ -106,48 +106,86 @@ export default {
             patientScheduleID: "",
             patientComplaint: "",
             patientDate: "",
+            patientMedicalRecord: "",
             error: null,
+            borderColor: '',
+            backgroundColor: '#fff',
+            borderColorPhone: '',
+            backgroundColorPhone: '#fff',
         };
     },
     methods: {
-  async submitRegist(){
-    try{
-      await this.$axios.$post('http://18.141.205.74:9000/sessions', 
-        {
-            patientID: this.patientID,
-            clinicID: this.patientClinicID,
-            doctorID: this.patientDoctorID,
-            scheduleID: this.patientScheduleID,
-            complaint: this.patientComplaint,
-            date: this.patientDate,
+      async cekPatientId(){
+        if(this.patientID.length == 13){
+          try{
+            const resp = await this.$axios.$get(`https://shaggy-badger-99.a276.dcdg.xyz/patients/${this.patientID}`)
+            // console.log(resp)
+            this.patientName = resp.data.name,
+            this.patientMedicalRecord = resp.data.medicalRecord,
+            this.patientPhone = resp.data.phone,
+            this.patientGender = resp.data.gender
+          } catch(e) {
+            console.log(e.response)
+          }
         }
-      )
-      // console.log(data)
-      .then((res) => {
-        if (res.code === 200) {
-          this.$router.push("/daftarBerhasil");
-          this.$store.commit("admin/setPatientID", this.patientID);
+        else{
+          console.log("updating...")
         }
-        else {
-          console.log(res.status);
-          this.error = "Data Sudah ada, cek kembali data Anda";
-          alert("Please correct the following error(s): \n" + `${this.error}`);
+          
+    },
+      async submitRegist(){
+        try{
+          await this.$axios.$post('https://shaggy-badger-99.a276.dcdg.xyz/sessions', 
+            {
+                patientID: this.patientID,
+                clinicID: this.patientClinicID,
+                doctorID: this.patientDoctorID,
+                scheduleID: this.patientScheduleID,
+                complaint: this.patientComplaint,
+                date: this.patientDate,
+            }
+          )
+          .then((res) => {
+            if (res.code === 200) {
+              this.$router.push("/daftarBerhasil");
+              this.$store.commit("admin/setPatientID", this.patientID);
+            }
+            else {
+              console.log(res.status);
+              this.error = "Data Sudah ada, cek kembali data Anda";
+              alert("Please correct the following error(s): \n" + `${this.error}`);
+            }
+          });
+        } catch(e) {
+          console.log(e.message);
+          this.error = e.message;
+          alert(this.error);
         }
-      });
-    } catch(e) {
-      console.log(e.message);
-      this.error = e.message;
-      alert(this.error);
+      
+      // console.log(
+      //   this.patientName,
+      //   this.patientGender,
+      //   this.patientNik,
+      //   this.patientPhone,
+      // )
+      },
+      blankData(){
+            this.patientName = '',
+            this.patientMedicalRecord = '',
+            this.patientPhone = '',
+            this.patientGender = ''
+      }
+    },
+    watch:{
+      patientID: function(oldVal, newVal){
+        if(oldVal.length == 13){
+          this.cekPatientId()
+        }
+        else{
+          this.blankData()
+        }
+      }
     }
-  
-  // console.log(
-  //   this.patientName,
-  //   this.patientGender,
-  //   this.patientNik,
-  //   this.patientPhone,
-  // )
-}
-},
 }
 </script>
 

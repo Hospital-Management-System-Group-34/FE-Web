@@ -19,7 +19,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="nik" class="label">NIK</label>
-                      <input type="number" class="form-control mb-2" v-model="patientNik" id="nik" placeholder="Masukkan nomer NIK" required>
+                      <input type="number" class="form-control mb-2" :style="{  borderColor: `${borderColor}`, backgroundColor: `${backgroundColor}`, }" v-model="patientNik" id="nik" placeholder="Masukkan nomer NIK" required>
                       <small class="text">*NIK harus 16 digit</small> <br>
 
                       <label for="norek" class="label mt-4">No. Rekam Medis</label>
@@ -29,7 +29,7 @@
                       <input type="text" class="form-control mb-2" v-model="patientName" id="name" placeholder="Alterra" required>
 
                       <label for="no" class="label mt-4">No. HP</label>
-                      <input type="number" class="form-control mb-2" v-model="patientPhone" id="no" placeholder="082213273168" required>
+                      <input type="number" class="form-control mb-2" v-model="patientPhone" :style="{  borderColor: `${borderColorPhone}`, backgroundColor: `${backgroundColorPhone}`, }" id="no" placeholder="082213273168" required>
 
                       <label for="sex" class="label mt-4">Jenis Kelamin</label>
                         <select id="sex" class="form-control" v-model="patientGender" required>
@@ -107,66 +107,81 @@ export default {
             patientComplaint: "",
             patientDate: "",
             error: null,
+            borderColor: '',
+            backgroundColor: '#fff',
+            borderColorPhone: '',
+            backgroundColorPhone: '#fff',
         };
     },
     methods: {
         async submitRegist() {
-          if(this.patientNik.length === 16){
-            try {
-                await this.$axios.$post("https://shaggy-badger-99.a276.dcdg.xyz/patients", {
-                    nik: this.patientNik,
-                    name: this.patientName,
-                    phone: this.patientPhone,
-                    gender: this.patientGender
-                })
-                    // console.log(data)
-                    // 
-                    .then((response) => {
-                    console.log(response.data.patient.id);
-                    if (response.code === 200) {
-                        try {
-                            this.$axios.$post("https://shaggy-badger-99.a276.dcdg.xyz/sessions", {
-                                patientID: response.data.patient.id,
-                                clinicID: this.patientClinicID,
-                                doctorID: this.patientDoctorID,
-                                scheduleID: this.patientScheduleID,
-                                complaint: this.patientComplaint,
-                                date: this.patientDate,
-                            })
-                                .then((res) => {
-                                if (res.code === 200) {
-                                    this.$router.push("/daftarBerhasil");
-                                    this.$store.commit("admin/setPatientID", response.data.patient.id)
+          if(this.patientNik.length === 16 ){
+            if(this.patientPhone.length >= 10 && this.patientPhone.length <= 15){
+                    try {
+                        await this.$axios.$post("https://shaggy-badger-99.a276.dcdg.xyz/patients", {
+                            nik: this.patientNik,
+                            name: this.patientName,
+                            phone: this.patientPhone,
+                            gender: this.patientGender
+                        })
+                            // console.log(data)
+                            // 
+                            .then((response) => {
+                            console.log(response.data.patient.id);
+                            if (response.code === 200) {
+                                try {
+                                    this.$axios.$post("https://shaggy-badger-99.a276.dcdg.xyz/sessions", {
+                                        patientID: response.data.patient.id,
+                                        clinicID: this.patientClinicID,
+                                        doctorID: this.patientDoctorID,
+                                        scheduleID: this.patientScheduleID,
+                                        complaint: this.patientComplaint,
+                                        date: this.patientDate,
+                                    })
+                                        .then((res) => {
+                                        if (res.code === 200) {
+                                            this.$router.push("/daftarBerhasil");
+                                            this.$store.commit("admin/setPatientID", response.data.patient.id)
+                                        }
+                                        else {
+                                            console.log(res.status);
+                                            this.error = "Data Sudah ada, cek kembali data Anda";
+                                            alert("Please correct the following error(s): \n" + `${this.error}`);
+                                        }
+                                    });
                                 }
-                                else {
-                                    console.log(res.status);
+                                catch (err) {
+                                    console.log(err.message);
                                     this.error = "Data Sudah ada, cek kembali data Anda";
                                     alert("Please correct the following error(s): \n" + `${this.error}`);
                                 }
-                            });
-                        }
-                        catch (err) {
-                            console.log(err.message);
-                            this.error = "Data Sudah ada, cek kembali data Anda";
-                            alert("Please correct the following error(s): \n" + `${this.error}`);
-                        }
+                            }
+                            else {
+                                console.log(response.status);
+                                this.error = "Data Sudah ada, cek kembali data Anda";
+                                alert("Please correct the following error(s): \n" + `${this.error}`);
+                            }
+                        });
                     }
-                    else {
-                        console.log(response.status);
+                    catch (e) {
+                        console.log(e.message);
                         this.error = "Data Sudah ada, cek kembali data Anda";
                         alert("Please correct the following error(s): \n" + `${this.error}`);
                     }
-                });
-            }
-            catch (e) {
-                console.log(e.message);
-                this.error = "Data Sudah ada, cek kembali data Anda";
-                alert("Please correct the following error(s): \n" + `${this.error}`);
-            }
-          }
+                  }
+                    else{
+                          this.borderColorPhone = "red";
+                          this.backgroundColorPhone = "bisque";
+                          this.error = "Data Nomor Telepon tidak Kurang dari 15 Digit dan lebih dari 10 Digit, tolong periksa kembali!";
+                          alert("Please correct the following error(s): \n" + `${this.error}`);
+                    }
+                  }
           else{
+            this.borderColor = "red";
+            this.backgroundColor = "bisque";
             this.error = "Data Nik tidak terdiri dari 16 Digit, tolong periksa kembali!";
             alert("Please correct the following error(s): \n" + `${this.error}`);
+
           } 
             // this.$store.dispatch("admin/setNewPatient",{
             //   nik: this.patientNik,
@@ -228,6 +243,10 @@ export default {
   width: 90%;
   margin: auto;
 }
+/* .form-control:focus{
+  border-color: '';
+  background-color: #fff;
+} */
 .label{
   font-weight: bold;
   font-size: 1.3em;
@@ -251,4 +270,8 @@ export default {
   background-color: white;
   color: #0957DE !important;
 }
+/* input:invalid{
+  border-color: red;
+  background-color: bisque;
+} */
 </style>
