@@ -141,11 +141,11 @@ export default {
         dokter[6]="dr.Trisna Sp.KG";
 
         poli[1]="POLI UMUM";
-        poli[2]="POLI GIGI";
-        poli[3]="POLI ANAK";
-        poli[4]="POLI MATA";
+        poli[2]="POLI MATA";
+        poli[3]="POLI JANTUNG";
+        poli[4]="POLI ANAK";
         poli[5]="POLI THT";
-        poli[6]="JANTUNG";
+        poli[6]="POLI GIGI";
 
         jadwal[1]="08:00-11:00";
         jadwal[2]="09:00-11:00";

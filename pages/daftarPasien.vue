@@ -42,12 +42,12 @@
                       <label for="poli" class="label">Poli</label>
                         <select id="poli" class="form-control" v-model="patientClinicID" required>
                           <option selected>-- PILIH POLI --</option>
-                          <option value="clinic-1">-- UMUM --</option>
-                          <option value="clinic-2">-- MATA --</option>
-                          <option value="clinic-3">-- JANTUNG --</option>
-                          <option value="clinic-4">-- ANAK --</option>
-                          <option value="clinic-5">-- THT --</option>
-                          <option value="clinic-6">-- GIGI --</option>
+                          <option value="clinic-1">-- POLI UMUM --</option>
+                          <option value="clinic-2">-- POLI MATA --</option>
+                          <option value="clinic-3">-- POLI JANTUNG --</option>
+                          <option value="clinic-4">-- POLI ANAK --</option>
+                          <option value="clinic-5">-- POLI THT --</option>
+                          <option value="clinic-6">-- POLI GIGI --</option>
                         </select>
 
                         <label for="dokter" class="label mt-4">Dokter</label>
