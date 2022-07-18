@@ -123,7 +123,16 @@ export default {
         }
       )
       // console.log(data)
-      this.$router.push('/daftarBerhasil')
+      .then((res) => {
+        if (res.code === 200) {
+          this.$router.push("/daftarBerhasil");
+        }
+        else {
+          console.log(res.status);
+          this.error = "Data Sudah ada, cek kembali data Anda";
+          alert("Please correct the following error(s): \n" + `${this.error}`);
+        }
+      });
     } catch(e) {
       console.log(e.message);
       this.error = e.message;

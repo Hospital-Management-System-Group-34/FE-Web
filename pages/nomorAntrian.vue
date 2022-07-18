@@ -16,7 +16,7 @@
                 <strong>UM01</strong> <br>
                 <span>
                   <h3>
-                    Senin
+                    {{date}}
                   </h3>
                 </span>
               </h1>
@@ -24,7 +24,7 @@
             <div class="content mt-3">
               <h4>Dokter</h4>
               <h2>
-                <strong>dr.Liza Amalia Putri</strong>
+                <strong>{{doctorID}}</strong>
               </h2>
             </div>
             <div class="mt-3">
@@ -34,7 +34,7 @@
                     <div class="p-3 content">
                       <h5>Poli Tujuan</h5>
                        <strong>
-                      <h4 style="font-weight: bold">POLI MATA</h4>
+                      <h4 style="font-weight: bold">{{clinicID}}</h4>
                       </strong>
                     </div>
                   </div>
@@ -42,7 +42,7 @@
                     <div class="p-3 content">
                       <h5>Nama</h5>
                        <strong>
-                      <h4 style="font-weight: bold">Tengku Mahmudi</h4>
+                      <h4 style="font-weight: bold">{{patientName}}</h4>
                       </strong>
                     </div>
                   </div>
@@ -56,7 +56,7 @@
                     <div class="p-3 content">
                       <h5>No.Rekam Medis</h5>
                        <strong>
-                      <h4 style="font-weight: bold">PS.123456789</h4>
+                      <h4 style="font-weight: bold">PS.{{medRecord}}</h4>
                       </strong>
                     </div>
                   </div>
@@ -64,7 +64,7 @@
                     <div class="p-3 content">
                       <h5>Waktu</h5>
                        <strong>
-                      <h4 style="font-weight: bold">08:00-11:00</h4>
+                      <h4 style="font-weight: bold">{{scheduleID}}</h4>
                       </strong>
                     </div>
                   </div>
@@ -103,11 +103,79 @@ export default {
 
   middleware: 'auth',
 
+  data(){
+    return {
+      date: '',
+      doctorID: '',
+      clinicID: '',
+      patientName: '',
+      scheduleID: '',
+      medRecord: '',
+    }
+  },
+  created(){
+
+  },
+
   methods: {
   async cekData(){
+
+    var weekday=new Array(7);
+    var dokter = new Array(7);
+    var poli = new Array(7);
+    var jadwal = new Array(7);
+
+        weekday[1]="Senin";
+        weekday[2]="Selasa";
+        weekday[3]="Rabu";
+        weekday[4]="Kamis";
+        weekday[5]="Jumat";
+        weekday[6]="Sabtu";
+        weekday[0]="Minggu";
+
+        dokter[1]="dr.Keshya Valerie Sky";
+        dokter[2]="dr.dr.rizky Sp.A(K)";
+        dokter[3]="dr.Amroni Sp.";
+        dokter[4]="dr.Valen Sp.A";
+        dokter[5]="dr.Baki Sp.M";
+        dokter[6]="dr.Trisna Sp.KG";
+
+        poli[1]="POLI UMUM";
+        poli[2]="POLI GIGI";
+        poli[3]="POLI ANAK";
+        poli[4]="POLI MATA";
+        poli[5]="POLI THT";
+        poli[6]="JANTUNG";
+
+        jadwal[1]="08:00-11:00";
+        jadwal[2]="09:00-11:00";
+        jadwal[3]="10:00-11:00";
+        jadwal[4]="13:00-17:00";
+        jadwal[5]="14:00-17:00";
+        jadwal[6]="15:00-17:00";
+        jadwal[7]="16:00-17:00";
+
+
     try{
-      const resp = await this.$axios.$get('http://18.141.205.74:9000/patients')
-      console.log(resp.data)
+      const resp = await this.$axios.$get(`https://shaggy-badger-99.a276.dcdg.xyz/patients/${this.storedPatientID}`)
+      console.log(resp)
+      // console.log(resp.data.medicalRecord.slice(-16))
+
+      const d = new Date(resp.data.sessions[0].date);
+      const docID = resp.data.sessions[0].doctorID.slice(-1);
+      const ClinicID = resp.data.sessions[0].clinicID.slice(-1);
+      const scheduleIdentifier = resp.data.sessions[0].scheduleID.slice(-1);
+      const medRec = resp.data.medicalRecord.slice(-16);
+      
+      let day = d.getDay();
+      this.date = weekday[day],
+
+      
+      this.doctorID = dokter[docID],
+      this.clinicID = poli[ClinicID] ,
+      this.patientName = resp.data.name,
+      this.scheduleID = jadwal[scheduleIdentifier],
+      this.medRecord = medRec
     } catch(e) {
       console.log(e.response)
     }
@@ -137,10 +205,17 @@ export default {
   }
 
 },
-mounted(){
-    console.log("HTML", this.$el.innerHTML)
-  }
-  
+
+  computed: {
+    storedPatientID(){
+      return this.$store.state.admin.patientID
+    }
+  },
+
+  mounted(){
+      this.cekData();
+    }
+
 }
 </script>
 
