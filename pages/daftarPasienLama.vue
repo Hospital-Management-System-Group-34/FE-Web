@@ -105,7 +105,7 @@ export default {
             patientDoctorID: "",
             patientScheduleID: "",
             patientComplaint: "",
-            patientDate: "",
+            patientDate: new Date().toISOString().slice(0,10),
             patientMedicalRecord: "",
             error: null,
             borderColor: '',
