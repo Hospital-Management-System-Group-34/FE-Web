@@ -24,7 +24,8 @@
               <div class="row">
                 <div class="col-6">
                 <div class="col-6" style="padding-left: 25px">
-                  <img class="mt-5" src="~/assets/img/male.png" alt="">
+                  <img v-if="patientGender == 'Laki-Laki'" class="mt-5" src="~/assets/img/male.png" alt="">
+                  <img v-if="patientGender == 'Perempuan'" class="mt-5" src="~/assets/img/female.png" alt="">
                 </div>
                 </div>
                 <div class="col-6">
@@ -76,6 +77,7 @@ export default {
       doctorID: '',
       clinicID: '',
       statusSession: '',
+      patientGender: '',
 
     }
   },
@@ -119,6 +121,7 @@ export default {
       this.doctorID = dokter[docID],
       this.clinicID = poli[ClinicID] ,
       this.statusSession = resp.data.sessions[0].status
+      this.patientGender = resp.data.gender
       // console.log(resp.data.medicalRecord.slice(-16))
 
       // const d = new Date(resp.data.sessions[0].date);

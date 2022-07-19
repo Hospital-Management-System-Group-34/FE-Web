@@ -23,13 +23,14 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-6" style="padding-left: 40px">
-                  <img class="mt-5" src="~/assets/img/male.png" alt="">
+                  <img v-if="patientGender == 'Laki-Laki'" class="mt-5" src="~/assets/img/male.png" alt="">
+                  <img v-if="patientGender == 'Perempuan'" class="mt-5" src="~/assets/img/female.png" alt="">
                 </div>
                 <div class="col-6">
                   <div>
-                    <h4 class="mt-4">NIK</h4>
+                    <h4 class="mt-4">Tipe Kunjungan</h4>
                     <h5 class="label mt-4">
-                      <input class="label form-control-plaintext" :readonly="disable" placeholder="1234567890">
+                      <input class="label form-control-plaintext" v-model="patientType" :readonly="disable" placeholder="1234567890">
                     </h5>
                   </div>
                   <div>
@@ -37,13 +38,13 @@
                      <div class="row">
                       <div class="col-6">
                         <h5 class="label mt-4">
-                        <input v-if="disable" type="text" class="label form-control-plaintext" v-model="date" :formatter="format(date)" :readonly="disable" placeholder="12/12/1212" onfocus="(this.type='text')">
-                        <input v-else type="text" class="label form-control-plaintext" v-model="date" :formatter="format(date)" :readonly="disable" placeholder="12/12/1212" onfocus="(this.type='date')">
+                        <input v-if="disable" type="text" v-model="patientDate" class="label form-control-plaintext"  :formatter="format(date)" :readonly="disable" placeholder="12/12/1212" onfocus="(this.type='text')">
+                        <input v-else type="text" v-model="patientDate" class="label form-control-plaintext"  :formatter="format(date)" :readonly="disable" placeholder="12/12/1212" onfocus="(this.type='date')">
                         </h5>
                       </div>
                       <div class="col-6">
                         <h5 class="label mt-4">
-                          <input type="time" class="label form-control-plaintext" :readonly="disable" value="13:00">
+                          <input type="time" v-model="scheduleID" class="label form-control-plaintext" :readonly="disable" value="13:00">
                         </h5>
                       </div>
                      </div>
@@ -60,11 +61,11 @@
                      <div class="row">
                       <div class="col-6">
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="Obat">
+                          <input v-model="patientDrugHistory" class="label form-control-plaintext" :readonly="disable" placeholder="Obat">
                         </h5></div>
                       <div class="col-6">
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="Tidak Ada">
+                          <input v-model="patientDrugHistory" class="label form-control-plaintext" :readonly="disable" placeholder="Tidak Ada">
                         </h5>
                       </div>
                      </div>
@@ -72,13 +73,13 @@
                   <div>
                     <h4 class="mt-4">Terapi Obat</h4>
                     <h5 class="label mt-4">
-                      <textarea class="label form-control-plaintext" cols="40" rows="5" :readonly="disable" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo modi natus laudantium, vitae voluptatem quidem obcaecati itaque laborum sequi officiis eligendi sapiente placeat harum minus recusandae tempore repudiandae optio? Officiis!"></textarea>
+                      <textarea class="label form-control-plaintext" v-model="patientDrugTherapy" cols="40" rows="5" :readonly="disable" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo modi natus laudantium, vitae voluptatem quidem obcaecati itaque laborum sequi officiis eligendi sapiente placeat harum minus recusandae tempore repudiandae optio? Officiis!"></textarea>
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Diagnosa</h4>
                     <h5 class="label mt-4">
-                      <textarea class="label form-control-plaintext" cols="40" rows="5" :readonly="disable" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo modi natus laudantium, vitae voluptatem quidem obcaecati itaque laborum sequi officiis eligendi sapiente placeat harum minus recusandae tempore repudiandae optio? Officiis!"></textarea>
+                      <textarea class="label form-control-plaintext" v-model="patientDiagnose" cols="40" rows="5" :readonly="disable" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo modi natus laudantium, vitae voluptatem quidem obcaecati itaque laborum sequi officiis eligendi sapiente placeat harum minus recusandae tempore repudiandae optio? Officiis!"></textarea>
                     </h5>
                   </div>
                   <div>
@@ -87,13 +88,13 @@
                       <div class="col-6">
                         <h4 class="mt-4">Tinggi Badan (cm)</h4>
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="175">
+                          <input class="label form-control-plaintext" v-model="patientHeight" :readonly="disable" placeholder="175">
                         </h5>
                       </div>
                       <div class="col-6">
                         <h4 class="mt-4">Berat Badan (KG)</h4>
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="80">
+                          <input class="label form-control-plaintext" v-model="patientWeight" :readonly="disable" placeholder="80">
                         </h5>
                       </div>
                      </div>
@@ -104,17 +105,17 @@
                       <div class="col-6">
                         <h4 class="mt-4">Sistole (mmHg)</h4>
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="90">
+                          <input class="label form-control-plaintext" v-model="patientSystole" :readonly="disable" placeholder="90">
                         </h5>
                         <h4 class="mt-4">Suhu (C)</h4>
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="34">
+                          <input class="label form-control-plaintext" v-model="patientTemp" :readonly="disable" placeholder="34">
                         </h5>
                       </div>
                       <div class="col-6">
                         <h4 class="mt-4">Diastole (mmHg)</h4>
                         <h5 class="label mt-4">
-                          <input class="label form-control-plaintext" :readonly="disable" placeholder="60">
+                          <input class="label form-control-plaintext" v-model="patientDiastole" :readonly="disable" placeholder="60">
                         </h5>
                       </div>
                      </div>
@@ -122,7 +123,7 @@
                   <div>
                     <h4 class="mt-4">Status Pulang</h4>
                     <h5 class="label mt-4">
-                      <input class="label form-control-plaintext" :readonly="disable" placeholder="Rawat Jalan">
+                      <input class="label form-control-plaintext" v-model="patientStatus" :readonly="disable" placeholder="Rawat Jalan">
                     </h5>
                   </div>
                   <h4 class="mt-4">*Pastikan semua data terisi dengan benar</h4>
@@ -153,6 +154,20 @@ export default {
         return {
             disable: true,
             date: "",
+            patientType: '',
+            patientDate: '',
+            patientSchedule: '',
+            scheduleID: '',
+          patientDrugHistory: '',
+          patientDrugTherapy: '',
+          patientDiagnose: '',
+          patientHeight: '',
+          patientWeight: '',
+          patientSystole: '',
+          patientDiastole: '',
+          patientTemp: '',
+          patientStatus: '',
+          patientGender: '',
         };
     },
     methods: {
@@ -166,9 +181,98 @@ export default {
         },
         format(value) {
             return moment(value).format("DD-MM-YYYY");
+        },
+        async fetchDataPatient(){
+
+                var weekday=new Array(7);
+    var dokter = new Array(7);
+    var poli = new Array(7);
+    var jadwal = new Array(7);
+
+        weekday[1]="Senin";
+        weekday[2]="Selasa";
+        weekday[3]="Rabu";
+        weekday[4]="Kamis";
+        weekday[5]="Jumat";
+        weekday[6]="Sabtu";
+        weekday[0]="Minggu";
+
+        dokter[1]="dr.Keshya Valerie Sky";
+        dokter[2]="dr.dr.rizky Sp.A(K)";
+        dokter[3]="dr.Amroni Sp.";
+        dokter[4]="dr.Valen Sp.A";
+        dokter[5]="dr.Baki Sp.M";
+        dokter[6]="dr.Trisna Sp.KG";
+
+        poli[1]="POLI UMUM";
+        poli[2]="POLI MATA";
+        poli[3]="POLI JANTUNG";
+        poli[4]="POLI ANAK";
+        poli[5]="POLI THT";
+        poli[6]="POLI GIGI";
+
+        jadwal[1]="08:00-11:00";
+        jadwal[2]="09:00-11:00";
+        jadwal[3]="10:00-11:00";
+        jadwal[4]="13:00-17:00";
+        jadwal[5]="14:00-17:00";
+        jadwal[6]="15:00-17:00";
+        jadwal[7]="16:00-17:00";
+
+
+          try{
+          const resp = await this.$axios.$get(`https://shaggy-badger-99.a276.dcdg.xyz/patients/${this.storedPatientID}`)
+          console.log(resp)
+
+          const scheduleIdentifier = resp.data.sessions[0].scheduleID.slice(-1);
+
+          this.patientType = resp.data.medicalRecords[0].type
+          this.patientDate = resp.data.sessions[0].date
+          this.scheduleID = jadwal[scheduleIdentifier]
+          this.patientDrugHistory = resp.data.medicalRecords[0].drugAllergyHistory
+          this.patientDrugTherapy = resp.data.medicalRecords[0].drugTherapy
+          this.patientDiagnose = resp.data.medicalRecords[0].diagnosis
+          this.patientHeight = resp.data.medicalRecords[0].height
+          this.patientWeight = resp.data.medicalRecords[0].weight
+          this.patientSystole = resp.data.medicalRecords[0].systole
+          this.patientDiastole = resp.data.medicalRecords[0].patientDiastole
+          this.patientTemp = resp.data.medicalRecords[0].temperature
+          this.patientStatus = resp.data.medicalRecords[0].status
+          this.patientGender = resp.data.gender
+
+          // console.log(resp.data.medicalRecord.slice(-16))
+
+          // const d = new Date(resp.data.sessions[0].date);
+          // const docID = resp.data.sessions[0].doctorID.slice(-1);
+          // const ClinicID = resp.data.sessions[0].clinicID.slice(-1);
+          // const scheduleIdentifier = resp.data.sessions[0].scheduleID.slice(-1);
+          // const medRec = resp.data.medicalRecord.slice(-16);
+          
+          // let day = d.getDay();
+          // this.date = weekday[day],
+
+          
+          // this.doctorID = dokter[docID],
+          // this.clinicID = poli[ClinicID] ,
+          // this.patientName = resp.data.name,
+          // this.scheduleID = jadwal[scheduleIdentifier],
+          // this.medRecord = medRec
+        } catch(e) {
+          console.log(e.response)
         }
-    },
-    // components: { LoremIpsum }
+        }
+      },
+
+  computed: {
+    storedPatientID(){
+      return this.$store.state.admin.patientID
+    }
+  },
+
+  mounted(){
+      this.fetchDataPatient();
+    }
+
 }
 </script>
 

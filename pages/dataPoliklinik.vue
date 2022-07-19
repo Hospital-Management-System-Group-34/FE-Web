@@ -26,7 +26,7 @@
                           </strong>
                         </h5>
                         <h5 class="text">
-                          Dr.Keshya Valerie SKy
+                          dr. Jane
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
@@ -46,7 +46,7 @@
                           </strong>
                         </h5>
                         <h5 class="text">
-                          Dr.Rizky Sp. A(k)
+                          dr. Peter
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
@@ -66,7 +66,7 @@
                           </strong>
                         </h5>
                         <h5 class="text">
-                          Dr.Amroni Sp. THT
+                          dr. Strange
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
@@ -88,7 +88,7 @@
                           </strong>
                         </h5>
                         <h5 class="text">
-                          Dr.Baki Sp. M
+                          dr. Richard
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
@@ -108,7 +108,7 @@
                           </strong>
                         </h5>
                         <h5 class="text">
-                          Dr.Valen Sp. A
+                          dr. Wanda
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
@@ -128,7 +128,7 @@
                           </strong>
                         </h5>
                         <h5 class="text">
-                          Dr.Trisna Sp. KG
+                          dr. Kamala
                         </h5>
                       </div>
                       <div class="col-6 mt-3">

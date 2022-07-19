@@ -148,7 +148,7 @@ export default {
 }
 .pageHome{
     background-color: whitesmoke;
-    height: 100vh;
+    height: auto;
 }
 .banner{
   max-height: 500px;

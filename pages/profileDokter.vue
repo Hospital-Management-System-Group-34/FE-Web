@@ -40,7 +40,7 @@
                         </h4>
                       </div>
                     </div>
-                      <div class="card-title">
+                      <div class="card-titleDokter card-title">
                         <a class="c" @click="showModal = true">Lihat Surat Izin</a>
                         <Modal v-if="showModal" @close="showModal = false">
                           <h3 style="text-align:center" slot="header">Modal Surat Izin</h3>
@@ -86,7 +86,6 @@
                   <div>
                     <h4 class="mt-4">Agama</h4>
                     <h5 class="label mt-4">
-                      <!-- <input class="label form-control-plaintext" :readonly="disable" placeholder="Islam"> -->
                       <select id="agama" v-model="doctorReligion" class="label form-control-plaintext" :disabled="disable">
                           <option selected>-- AGAMA --</option>
                           <option>Islam</option>
@@ -206,13 +205,13 @@ h2{
   border-radius: 20px 20px 20px 20px;
   padding: 7px;
 }
-.card-title{
+.card-titleDokter{
   background-color: #09C2DE;
   margin-bottom: 0px;
   border-radius: 0 0 15px 15px;
   padding: 10px;
 }
-.card-title a{
+.card-titleDokter a{
   text-decoration: none;
   color: white;
 }
@@ -288,8 +287,8 @@ h2{
  cursor: pointer;
 }
 img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 85%;
+    max-height: 85%;
 }
 
 </style>
