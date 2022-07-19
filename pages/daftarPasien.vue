@@ -11,7 +11,7 @@
     </div>
     <div class="container-fluid pageDaftarPasie page ">
       <div class="row">
-        <div class="cardDaftarPasien card">
+        <div class="cardDaftarPasien card mb-5">
           <div class="card-body">
             <h5 class="card-title">PENDAFTARAN</h5>
              <div class="card-text">
@@ -219,7 +219,7 @@ export default {
 <style>
 .pageDaftarPasien{
     background-color: whitesmoke;
-    height: 100vh;
+    height: auto;
 }
 .container a {
   text-decoration: none;
