@@ -5,7 +5,8 @@
       <div class="row">
         <div>
           <a class="link" href="/adminHome">Home</a> <strong>></strong>
-          <a class="link" href="" style="font-weight: bold"><strong>Data Dokter</strong></a>
+          <a class="link" href="/dataDokter">Data Dokter</a><strong>></strong>
+          <a class="link" href="" style="font-weight: bold"><strong>Profile Dokter</strong></a>
         </div>
       </div>
     </div>
@@ -27,15 +28,15 @@
                       <div class="card-text">
                         <h4>
                           <strong>
-                            Dr. Keshya Valerie Sky
+                            {{doctorName}}
                           </strong>
                         </h4>
-                        <h4 class="category mt-4">UMUM</h4>
+                        <h4 class="category mt-4">{{doctorSpecialty}}</h4>
                         <h4 class="mt-3" style="color: #9B9B9B">
                           Senin - Sabtu
                         </h4>
                         <h4 class="mt-3" style="color: #C4C3C3">
-                          (021) - 123456789
+                          {{doctorPhone}}
                         </h4>
                       </div>
                     </div>
@@ -61,32 +62,32 @@
                   <div>
                     <h4 class="mt-4">Nama</h4>
                     <h5 class="label mt-4">
-                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="Nama Dokter">
+                      <input id="input" class="label form-control-plaintext" v-model="doctorName" :readonly="disable" placeholder="Nama Dokter">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">No. Izin Praktik</h4>
                     <h5 class="label mt-4">
-                      <input class="label form-control-plaintext" :readonly="disable" placeholder="A.123456789">
+                      <input class="label form-control-plaintext" v-model="doctorLicense" :readonly="disable" placeholder="A.123456789">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Alamat</h4>
                     <h5 class="label mt-4">
-                      <input class="label form-control-plaintext" :readonly="disable" placeholder="Jl. Soekarno Hatta, Kota Jambi">
+                      <input class="label form-control-plaintext" v-model="doctorAddress" :readonly="disable" placeholder="Jl. Soekarno Hatta, Kota Jambi">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Tempat Tanggal Lahir</h4>
                     <h5 class="label mt-4">
-                      <input class="label form-control-plaintext" :readonly="disable" placeholder="Kota Jambi, 17 Maret 1989">
+                      <input class="label form-control-plaintext" v-model="doctorBornDate" :readonly="disable" placeholder="Kota Jambi, 17 Maret 1989">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Agama</h4>
                     <h5 class="label mt-4">
                       <!-- <input class="label form-control-plaintext" :readonly="disable" placeholder="Islam"> -->
-                      <select id="agama" class="label form-control-plaintext" :disabled="disable">
+                      <select id="agama" v-model="doctorReligion" class="label form-control-plaintext" :disabled="disable">
                           <option selected>-- AGAMA --</option>
                           <option>Islam</option>
                           <option>Kristen</option>
@@ -118,6 +119,13 @@ data(){
   return{
     disable: true,
     showModal: false,
+    doctorName: '',
+    doctorLicense: '',
+    doctorAddress: '',
+    doctorBornDate: '',
+    doctorReligion: '',
+    doctorPhone: '',
+    doctorSpecialty: ''
   }
 },
 methods: {
@@ -129,8 +137,33 @@ methods: {
     else{
       this.disable = true
     }
-  }
+  },
+  async fetchDataDoctor(){
+      try{
+      const resp = await this.$axios.$get(`https://shaggy-badger-99.a276.dcdg.xyz/users/${this.storedDoctorID}`)
+      console.log(resp)
+      this.doctorName = resp.data.user.name,
+      this.doctorReligion = resp.data.user.religion,
+      this.doctorLicense = resp.data.user.license,
+      this.doctorPhone = resp.data.user.phone,
+      this.doctorAddress = resp.data.user.address,
+      this.doctorBornDate = resp.data.user.birthPlace + ", " + resp.data.user.birthDate,
+      this.doctorSpecialty = resp.data.user.speciality.toUpperCase();
+
+    } catch(e) {
+      console.log(e.response)
+    }
+    }
 },
+  computed: {
+    storedDoctorID(){
+      return this.$store.state.admin.doctorID
+    }
+  },
+    mounted(){
+      this.fetchDataDoctor();
+    },
+
 components: { Modal },
 }
 </script>

@@ -30,7 +30,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <button  id="clinic-1-1" class="btn2 btn btn-block" @click="press1()">LIHAT LIST ANTRIAN</button>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -50,7 +50,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <button  id="clinic-3-1" class="btn2 btn btn-block" @click="press3()">LIHAT LIST ANTRIAN</button>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -70,7 +70,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <button  id="clinic-5-1" class="btn2 btn btn-block" @click="press5()">LIHAT LIST ANTRIAN</button>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -92,7 +92,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <button  id="clinic-2-1" class="btn2 btn btn-block" @click="press2()">LIHAT LIST ANTRIAN</button>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -112,7 +112,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <button  id="clinic-4-1" class="btn2 btn btn-block" @click="press4()">LIHAT LIST ANTRIAN</button>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -132,7 +132,7 @@
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/dataPasien" class="btn2 btn btn-block">LIHAT LIST ANTRIAN</a>
+                        <button  id="clinic-6-1" class="btn2 btn btn-block" @click="press6()">LIHAT LIST ANTRIAN</button>
                         <div class="progress mb-4">
                           <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="20">10/20 Kuota terisi</div>
                         </div>
@@ -153,6 +153,45 @@
 export default {
 
   middleware: 'auth',
+
+  methods:{
+    press1(){
+      const button = document.querySelector('#clinic-1-1')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setPoliID",button.id)
+      this.$router.push("/dataPasien");
+    },
+        press2(){
+      const button = document.querySelector('#clinic-2-1')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setPoliID",button.id)
+      this.$router.push("/dataPasien");
+    },
+        press3(){
+      const button = document.querySelector('#clinic-3-1')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setPoliID",button.id)
+      this.$router.push("/dataPasien");
+    },
+        press4(){
+      const button = document.querySelector('#clinic-4-1')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setPoliID",button.id)
+      this.$router.push("/dataPasien");
+    },
+        press5(){
+      const button = document.querySelector('#clinic-5-1')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setPoliID",button.id)
+      this.$router.push("/dataPasien");
+    },
+        press6(){
+      const button = document.querySelector('#clinic-6-1')
+      console.log('your id:', button.id)
+      this.$store.commit("admin/setPoliID",button.id)
+      this.$router.push("/dataPasien");
+    }
+  },
 
 }
 </script>

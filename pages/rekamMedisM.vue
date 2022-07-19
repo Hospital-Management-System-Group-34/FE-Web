@@ -41,16 +41,16 @@
                       <div class="col-6 mt-4">
                         <h5>
                           <strong>
-                            POLI JANTUNG
+                            {{clinicID}}
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Rizky Sp. A(k)
+                          {{doctorID}}
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/riwayatPasienM" class="btnRekamMedis btnRekamMedis2 btn btn-block">Sedang Diproses</a>
-                        <small class="small"><strong>Tanggal: 27 Mei 2022</strong></small><br>
+                        <a href="/riwayatPasienM" class="btnRekamMedis btnRekamMedis2 btn btn-block">{{statusSession}}</a>
+                        <small class="small"><strong>Tanggal: {{date}}</strong></small><br>
                       </div>
                     </div>
                   </div>
@@ -68,6 +68,89 @@
 export default {
 
   middleware: 'auth',
+
+    data(){
+    return{
+      disable: true,
+      date: '',
+      doctorID: '',
+      clinicID: '',
+      statusSession: '',
+
+    }
+  },
+  methods: {
+    editForm(){
+      if (this.disable == true)
+      {
+        this.disable = false
+      }
+      else{
+        this.disable = true
+      }
+    },
+    async fetchDataPatient(){
+
+          var dokter = new Array(7);
+          var poli = new Array(7);
+
+        dokter[1]="dr.Keshya Valerie Sky";
+        dokter[2]="dr.dr.rizky Sp.A(K)";
+        dokter[3]="dr.Amroni Sp.";
+        dokter[4]="dr.Valen Sp.A";
+        dokter[5]="dr.Baki Sp.M";
+        dokter[6]="dr.Trisna Sp.KG";
+
+        poli[1]="POLI UMUM";
+        poli[2]="POLI MATA";
+        poli[3]="POLI JANTUNG";
+        poli[4]="POLI ANAK";
+        poli[5]="POLI THT";
+        poli[6]="POLI GIGI";
+
+      try{
+      const resp = await this.$axios.$get(`https://shaggy-badger-99.a276.dcdg.xyz/patients/${this.storedPatientID}`)
+      console.log(resp)
+
+      const docID = resp.data.sessions[0].doctorID.slice(-1);
+      const ClinicID = resp.data.sessions[0].clinicID.slice(-1);
+
+      this.date = resp.data.sessions[0].date,
+      this.doctorID = dokter[docID],
+      this.clinicID = poli[ClinicID] ,
+      this.statusSession = resp.data.sessions[0].status
+      // console.log(resp.data.medicalRecord.slice(-16))
+
+      // const d = new Date(resp.data.sessions[0].date);
+      // const docID = resp.data.sessions[0].doctorID.slice(-1);
+      // const ClinicID = resp.data.sessions[0].clinicID.slice(-1);
+      // const scheduleIdentifier = resp.data.sessions[0].scheduleID.slice(-1);
+      // const medRec = resp.data.medicalRecord.slice(-16);
+      
+      // let day = d.getDay();
+      // this.date = weekday[day],
+
+      
+      // this.doctorID = dokter[docID],
+      // this.clinicID = poli[ClinicID] ,
+      // this.patientName = resp.data.name,
+      // this.scheduleID = jadwal[scheduleIdentifier],
+      // this.medRecord = medRec
+    } catch(e) {
+      console.log(e.response)
+    }
+    }
+  },
+    computed: {
+    storedPatientID(){
+      return this.$store.state.admin.patientID
+    }
+  },
+
+  mounted(){
+      this.fetchDataPatient();
+    }
+
 
 }
 </script>

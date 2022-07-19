@@ -43,22 +43,22 @@
                         <select id="poli" class="form-control" v-model="patientClinicID" required>
                           <option selected>-- PILIH POLI --</option>
                           <option value="clinic-1">-- POLI UMUM --</option>
-                          <option value="clinic-2">-- POLI GIGI --</option>
-                          <option value="clinic-3">-- POLI ANAK --</option>
-                          <option value="clinic-4">-- POLI MATA --</option>
+                          <option value="clinic-2">-- POLI MATA --</option>
+                          <option value="clinic-3">-- POLI JANTUNG --</option>
+                          <option value="clinic-4">-- POLI ANAK --</option>
                           <option value="clinic-5">-- POLI THT --</option>
-                          <option value="clinic-6">-- JANTUNG --</option>
+                          <option value="clinic-6">-- POLI GIGI --</option>
                         </select>
 
                         <label for="dokter" class="label mt-4">Dokter</label>
                         <select id="dokter" class="form-control" v-model="patientDoctorID" required>
                           <option selected>-- Pilih Dokter --</option>
-                          <option value="doctor-1">dr.Keshya Valerie Sky (UMUM)</option>
-                          <option value="doctor-2">dr.rizky Sp.A(K) (JANTUNG)</option>
-                          <option value="doctor-3">dr.Amroni Sp.THT</option>
-                          <option value="doctor-4">dr.Valen Sp.A (ANAK)</option>
-                          <option value="doctor-5">dr.Baki Sp.M (MATA)</option>
-                          <option value="doctor-6">dr.Trisna Sp.KG (GIGI)</option>
+                          <option value="doctor-1">dr. Jane (UMUM)</option>
+                          <option value="doctor-2">dr. Richard (MATA)</option>
+                          <option value="doctor-3">dr. Peter (JANTUNG)</option>
+                          <option value="doctor-4">dr. Wanda (ANAK)</option>
+                          <option value="doctor-5">dr. Strange (THT)</option>
+                          <option value="doctor-6">dr. Kamala (GIGI)</option>
                         </select>
 
                         <label for="date" class="label mt-4">Jadwal</label>

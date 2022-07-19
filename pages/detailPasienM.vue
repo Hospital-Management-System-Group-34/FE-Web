@@ -23,7 +23,8 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-6" style="padding-left: 40px">
-                  <img class="mt-5" src="~/assets/img/male.png" alt="">
+                  <img v-if="patientGender == 'Laki-Laki'" class="mt-5" src="~/assets/img/male.png" alt="">
+                  <img v-if="patientGender == 'Perempuan'" class="mt-5" src="~/assets/img/female.png" alt="">                  
                 </div>
                 <div class="col-6">
                   <div class="row text-center" style="height: auto">
@@ -37,25 +38,25 @@
                   <div>
                     <h4 class="mt-4">NIK</h4>
                     <h5 class="label mt-4">
-                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="1234567890">
+                      <input id="input" class="label form-control-plaintext" v-model="patientNIK" :readonly="disable" placeholder="1234567890">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">No. Rekam Medis</h4>
                     <h5 class="label mt-4">
-                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="PS.1234567890">
+                      <input id="input" class="label form-control-plaintext" v-model="medRecord" :readonly="disable" placeholder="PS.1234567890">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Nama Lengkap</h4>
                     <h5 class="label mt-4">
-                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="Tengku Mahmudi">
+                      <input id="input" class="label form-control-plaintext"  v-model="patientName" :readonly="disable" placeholder="Tengku Mahmudi">
                     </h5>
                   </div>
                   <div>
                     <h4 class="mt-4">Jenis Kelamin</h4>
                     <h5 class="label mt-4">
-                      <select id="Jenis Kelamin" class="label form-control-plaintext" :disabled="disable">
+                      <select id="Jenis Kelamin" class="label form-control-plaintext" v-model="patientGender" :disabled="disable">
                           <option>-- Jenis Kelamin --</option>
                           <option selected>Laki-Laki</option>
                           <option>Perempuan</option>
@@ -65,7 +66,7 @@
                   <div>
                     <h4 class="mt-4">No. HP</h4>
                     <h5 class="label mt-4">
-                      <input id="input" class="label form-control-plaintext" :readonly="disable" placeholder="0812345678">
+                      <input id="input" class="label form-control-plaintext" v-model="patientPhone" :readonly="disable" placeholder="0812345678">
                     </h5>
                   </div>
                   <button v-if="disable" class="mt-5 btnDetailPasien btn btn-block" @click="editForm">EDIT</button>
@@ -87,7 +88,17 @@ export default {
 
   data(){
     return{
-      disable: true
+      disable: true,
+      date: '',
+      doctorID: '',
+      clinicID: '',
+      patientName: '',
+      scheduleID: '',
+      medRecord: '',
+      patientNIK: '',
+      patientGender: '',
+      patientPhone: ''
+
     }
   },
   methods: {
@@ -99,8 +110,46 @@ export default {
       else{
         this.disable = true
       }
+    },
+    async fetchDataPatient(){
+      try{
+      const resp = await this.$axios.$get(`https://shaggy-badger-99.a276.dcdg.xyz/patients/${this.storedPatientID}`)
+      console.log(resp)
+      this.patientNIK = resp.data.nik
+      this.patientName = resp.data.name
+      this.patientGender = resp.data.gender
+      this.patientPhone = resp.data.phone
+      // console.log(resp.data.medicalRecord.slice(-16))
+
+      // const d = new Date(resp.data.sessions[0].date);
+      // const docID = resp.data.sessions[0].doctorID.slice(-1);
+      // const ClinicID = resp.data.sessions[0].clinicID.slice(-1);
+      // const scheduleIdentifier = resp.data.sessions[0].scheduleID.slice(-1);
+      // const medRec = resp.data.medicalRecord.slice(-16);
+      
+      // let day = d.getDay();
+      // this.date = weekday[day],
+
+      
+      // this.doctorID = dokter[docID],
+      // this.clinicID = poli[ClinicID] ,
+      // this.patientName = resp.data.name,
+      // this.scheduleID = jadwal[scheduleIdentifier],
+      // this.medRecord = medRec
+    } catch(e) {
+      console.log(e.response)
     }
-  }
+    }
+  },
+    computed: {
+    storedPatientID(){
+      return this.$store.state.admin.patientID
+    }
+  },
+
+  mounted(){
+      this.fetchDataPatient();
+    }
 }
 </script>
 

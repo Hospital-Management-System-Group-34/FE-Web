@@ -63,11 +63,11 @@
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Keshya Valerie SKy
+                          dr. Jane
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <button id="doctor-1" @click="press1()" class="btnDataDokter btn btn-block">LIHAT DATA</button>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -81,11 +81,11 @@
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Rizky Sp. A(k)
+                          dr. Peter
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <button id="doctor-3" @click="press3()" class="btnDataDokter btn btn-block">LIHAT DATA</button>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -99,11 +99,11 @@
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Amroni Sp. THT
+                          dr. Strange
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <button id="doctor-5" @click="press5()" class="btnDataDokter btn btn-block">LIHAT DATA</button>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -119,11 +119,11 @@
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Baki Sp. M
+                          dr. Richard
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <button id="doctor-2" @click="press2()" class="btnDataDokter btn btn-block">LIHAT DATA</button>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -137,11 +137,11 @@
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Valen Sp. A
+                          dr. Wanda
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <button id="doctor-4" @click="press4()" class="btnDataDokter btn btn-block">LIHAT DATA</button>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -155,11 +155,11 @@
                           </strong>
                         </h5>
                         <h5 class="text mb-5">
-                          Dr.Trisna Sp. KG
+                          dr. Kamala
                         </h5>
                       </div>
                       <div class="col-6 mt-3">
-                        <a href="/profileDokter" class="btnDataDokter btn btn-block">LIHAT DATA</a>
+                        <button id="doctor-6" @click="press6()" class="btnDataDokter btn btn-block">LIHAT DATA</button>
                         <small class="small">Jadwal: Senin - Minggu</small>
                       </div>
                     </div>
@@ -185,6 +185,49 @@ export default {
       return{
         showModal: false,
       }
+    },
+
+      methods:{
+    press1(){
+      const button = document.querySelector('#doctor-1')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setDoctorID",button.id)
+      this.$router.push("/profileDokter");
+    },
+        press2(){
+      const button = document.querySelector('#doctor-2')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setDoctorID",button.id)
+      this.$router.push("/profileDokter");
+    },
+        press3(){
+      const button = document.querySelector('#doctor-3')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setDoctorID",button.id)
+      this.$router.push("/profileDokter");
+    },
+        press4(){
+      const button = document.querySelector('#doctor-4')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setDoctorID",button.id)
+      this.$router.push("/profileDokter");
+    },
+        press5(){
+      const button = document.querySelector('#doctor-5')
+      // console.log('your id:', button.id)
+      this.$store.commit("admin/setDoctorID",button.id)
+      this.$router.push("/profileDokter");
+    },
+        press6(){
+      const button = document.querySelector('#doctor-6')
+      console.log('your id:', button.id)
+      this.$store.commit("admin/setDoctorID",button.id)
+      this.$router.push("/profileDokter");
+    }
+  },
+
+    computedDoctorID(){
+      return this.$store.state.admin.doctorID;
     }
 }
 </script>

@@ -6,6 +6,8 @@ const state = () =>({
     loggedIn: '',
     error: '',
     patientID: '',
+    poliID:'',
+    doctorID:'',
 });
 
 const mutations = {
@@ -23,7 +25,13 @@ const mutations = {
     },
     setPatientID(state, payload){
         state.patientID = payload;
-    }
+    },
+    setPoliID(state, payload){
+        state.poliID = payload;
+    },
+    setDoctorID(state, payload){
+        state.doctorID = payload;
+    },
 };
 
 const actions = {
